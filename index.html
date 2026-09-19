@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>درء — iPhone 17 Pro Max Preview</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --bg:#061014;--bg2:#091a20;--surface:#0d2228;--surface-2:#102b33;--surface-3:#163842;
+  --text:#f5fbfa;--muted:#91aaa6;--line:rgba(255,255,255,.075);--brand:#55e6c3;--brand-2:#6ba8ff;
+  --safe:#5ee49d;--warn:#ffc85a;--danger:#ff6d7e;--shadow:0 24px 70px rgba(0,0,0,.42);
+}
+:root.light{
+  --bg:#edf6f4;--bg2:#f7fbfa;--surface:#ffffff;--surface-2:#f0f7f5;--surface-3:#e6f2ef;
+  --text:#0a1b1d;--muted:#657d79;--line:rgba(9,36,38,.09);--shadow:0 20px 60px rgba(35,91,85,.16);
+}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'Alexandria',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;scrollbar-width:none}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}
+button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+body{background:
+  radial-gradient(circle at 85% -10%,rgba(85,230,195,.16),transparent 32%),
+  radial-gradient(circle at 0% 15%,rgba(107,168,255,.09),transparent 28%),var(--bg)}
+.shell{height:100vh;height:100dvh;position:relative;padding:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;background:var(--bg)}.shell::-webkit-scrollbar{display:none}
+.phone{width:440px;height:956px;position:absolute;top:50%;left:50%;overflow:hidden;border-radius:0;background:linear-gradient(180deg,var(--bg2),var(--bg));border:0;box-shadow:none;aspect-ratio:440/956;transform:translate(-50%,-50%) scale(var(--ph-scale,1));transform-origin:center center}
+.phone::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 100% 0,rgba(85,230,195,.09),transparent 24%)}
+.statusbar{height:48px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 25px 10px;padding-top:env(safe-area-inset-top);font-size:12.5px;color:var(--muted);position:relative;z-index:5}.statusbar::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:126px;height:34px;border-radius:22px;background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.035)}
+.app{height:calc(100% - 48px);position:relative}.screen{position:absolute;inset:0;overflow-y:auto;padding:18px 20px 112px;opacity:0;transform:translateX(-12px);pointer-events:none;transition:.28s ease;scrollbar-width:none}.screen::-webkit-scrollbar{display:none}.screen.active{opacity:1;transform:none;pointer-events:auto}
+#login{padding-bottom:24px;display:flex;flex-direction:column;justify-content:center}
+.logo{width:78px;height:78px;border-radius:25px;background:linear-gradient(145deg,var(--brand),var(--brand-2));display:grid;place-items:center;margin:0 auto 18px;color:#041d1b;box-shadow:0 20px 45px rgba(85,230,195,.25)}.logo svg{width:45px}
+.brand{text-align:center}.brand h1{margin:0;font-size:34px}.brand p{color:var(--muted);font-size:14px;margin:8px 0 26px}
+.login-card,.card,.panel{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 94%,white 6%),var(--surface));border:1px solid var(--line);border-radius:25px;box-shadow:0 14px 42px rgba(0,0,0,.12)}
+.login-card{padding:22px}.eyebrow{font-size:12.5px;color:var(--brand);font-weight:700;margin-bottom:8px}.login-card h2{font-size:23px;margin:0 0 8px}.sub{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 18px}
+.field-label{display:block;font-size:12.5px;color:var(--muted);margin:0 3px 8px}.field{width:100%;border:1px solid var(--line);background:var(--surface-2);color:var(--text);border-radius:16px;padding:14px 15px;outline:0;transition:.2s}.field:focus{border-color:rgba(85,230,195,.55);box-shadow:0 0 0 3px rgba(85,230,195,.08)}
+.primary,.secondary,.ghost{border:0;border-radius:16px;padding:14px 16px;font-weight:750}.primary{width:100%;background:linear-gradient(135deg,var(--brand),#42cba8);color:#03221d;box-shadow:0 15px 28px rgba(85,230,195,.18)}.secondary{background:var(--surface-2);color:var(--text);border:1px solid var(--line)}.ghost{background:transparent;color:var(--muted)}
+.login-actions{display:grid;gap:10px;margin-top:14px}.demo-link{text-align:center;color:var(--brand);font-size:13px;margin-top:14px;background:none;border:0;width:100%}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.user{display:flex;align-items:center;gap:11px}.avatar{width:44px;height:44px;border-radius:15px;background:linear-gradient(145deg,var(--brand),var(--brand-2));color:#05201d;font-weight:900;display:grid;place-items:center}.title{font-size:20px;font-weight:800}.muted{font-size:12.5px;color:var(--muted)}.icon-btn{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);display:grid;place-items:center}.icon-btn svg{width:21px}
+.hero{padding:20px;border-radius:28px;background:linear-gradient(145deg,#12323a,#0b252c);border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}.light .hero{background:linear-gradient(145deg,#fff,#edf8f5)}.hero::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;left:-80px;top:-90px;background:radial-gradient(circle,rgba(85,230,195,.22),transparent 70%)}
+.hero-row{display:flex;align-items:center;gap:15px;position:relative;z-index:1}.score{--v:0;width:118px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--brand) calc(var(--v)*1%),rgba(255,255,255,.08) 0);padding:9px;flex:none;transition:background 1s ease}.score-inner{height:100%;border-radius:50%;display:grid;place-items:center;background:var(--surface);text-align:center}.score strong{font-size:28.5px}.score span{font-size:10px;color:var(--muted);display:block}.hero h2{font-size:22px;margin:0 0 6px}.hero p{font-size:12.5px;line-height:1.75;color:var(--muted);margin:0}.hero .primary{margin-top:16px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 10px}.section-title h3{font-size:15px;margin:0}.section-title button{border:0;background:none;color:var(--brand);font-size:12.5px}
+.card{padding:15px}.alert-card{display:flex;gap:11px;align-items:flex-start}.alert-icon{width:39px;height:39px;border-radius:13px;background:rgba(255,200,90,.12);color:var(--warn);display:grid;place-items:center;flex:none}.alert-card h4{font-size:14px;margin:1px 0 5px}.alert-card p{margin:0;font-size:11px;line-height:1.65;color:var(--muted)}
+.scan-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.scan-card{min-height:132px;padding:17px;border-radius:22px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-align:right;display:flex;flex-direction:column;justify-content:space-between}.scan-card.active{border-color:rgba(85,230,195,.7);box-shadow:0 0 0 3px rgba(85,230,195,.08)}.scan-card .ico{width:43px;height:43px;border-radius:15px;background:rgba(85,230,195,.12);display:grid;place-items:center;color:var(--brand)}.scan-card h3{font-size:14px;margin:12px 0 4px}.scan-card p{font-size:10px;line-height:1.6;color:var(--muted);margin:0}
+.panel{padding:17px;margin-top:13px}.progress{height:7px;background:var(--surface-2);border-radius:20px;overflow:hidden;margin:13px 0 8px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:.5s ease}.steps{font-size:11px;color:var(--muted);min-height:18px;display:flex;align-items:center;gap:6px}.steps i{width:5px;height:5px;border-radius:50%;background:var(--brand);flex:none;animation:blink 1s infinite}.result{display:none;margin-top:15px}.result.show{display:block;animation:rise .4s ease}.result-head{display:flex;justify-content:space-between;align-items:center}.result-score{font-size:32px;font-weight:900}.safe{color:var(--safe)}.danger{color:var(--danger)}.warn{color:var(--warn)}.reason-list{display:grid;gap:8px;margin-top:13px}.reason{display:flex;gap:8px;font-size:11px;color:var(--muted)}.reason i{width:7px;height:7px;border-radius:50%;background:currentColor;margin-top:4px;flex:none}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.actions .primary{margin:0}
+.rec-line{display:flex;gap:8px;align-items:flex-start;margin-top:11px;padding:11px 12px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);font-size:11px;line-height:1.7}.rec-line b{color:var(--text)}
+.qr-stage{height:190px;border-radius:22px;background:linear-gradient(145deg,#071217,#0b1f25);border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}.qr-frame{width:118px;height:118px;border:2px solid var(--brand);border-radius:18px;position:relative}.qr-frame::before{content:"";position:absolute;left:8px;right:8px;top:12px;height:2px;background:var(--brand);box-shadow:0 0 18px var(--brand);animation:scan 2s infinite ease-in-out}.qr-demo{font-size:11px;color:var(--muted);position:absolute;bottom:15px}
+.chat{height:calc(100% - 72px);display:flex;flex-direction:column}.messages{flex:1;overflow-y:auto;padding-bottom:10px;scrollbar-width:none}.messages::-webkit-scrollbar{display:none}.bubble{max-width:88%;padding:12px 14px;border-radius:18px;margin:9px 0;font-size:12.5px;line-height:1.75}.bubble.ai{background:var(--surface);border:1px solid var(--line);border-top-right-radius:6px}.bubble.me{background:linear-gradient(135deg,var(--brand),#42cba8);color:#03221d;margin-right:auto;border-top-left-radius:6px;max-width:84%}.bubble.rich{padding:13px}.bubble.rich .r-chip{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:800;padding:4px 9px;border-radius:20px;margin-bottom:8px}.bubble.rich .r-chip.safe{background:rgba(94,228,157,.14);color:var(--safe)}.bubble.rich .r-chip.warn{background:rgba(255,200,90,.14);color:var(--warn)}.bubble.rich .r-chip.danger{background:rgba(255,109,126,.14);color:var(--danger)}.bubble.rich p{margin:0 0 8px;font-size:12.5px;line-height:1.7}.bubble.rich .r-rec{font-size:11px;color:var(--muted);margin:0 0 10px;line-height:1.7}.bubble.rich .r-actions{display:flex;flex-wrap:wrap;gap:6px}.bubble.rich .r-actions button{border:1px solid var(--line);background:var(--surface-2);color:var(--brand);font-size:10px;font-weight:700;padding:8px 10px;border-radius:11px}
+.typing{display:flex;gap:4px;align-items:center}.typing i{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.suggestions{display:flex;gap:8px;overflow-x:auto;margin:2px 0 8px;padding:4px 16px 6px;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%)}.suggestions::-webkit-scrollbar{display:none}.suggestions button{white-space:nowrap;flex:none;scroll-snap-align:start;border:1px solid var(--line);background:var(--surface-2);color:var(--text);padding:10px 14px;border-radius:20px;font-size:11px;font-weight:600}
+.composer{display:flex;gap:8px;padding-top:10px}.send{width:49px;border:0;border-radius:16px;background:var(--brand);color:#03221d;font-weight:900}.attach{width:45px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--muted)}
+.report-steps{display:flex;gap:7px;margin-bottom:15px}.report-steps span{height:5px;flex:1;border-radius:10px;background:var(--surface-2)}.report-steps span.on{background:var(--brand)}.types{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.type{padding:13px;border-radius:15px;border:1px solid var(--line);background:var(--surface-2);color:var(--text)}.type.selected{border-color:var(--brand);background:rgba(85,230,195,.09)}.report-view{display:none}.report-view.active{display:block}.report-history{display:grid;gap:9px}.report-item{display:flex;justify-content:space-between;align-items:center;padding:13px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}.status-pill{font-size:10px;padding:6px 8px;border-radius:20px;background:rgba(255,200,90,.12);color:var(--warn)}
+.settings{display:grid;gap:0}.setting{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}.setting:last-child{border:0}.switch{width:48px;height:27px;background:var(--surface-3);border-radius:20px;position:relative;border:1px solid var(--line)}.switch::after{content:"";position:absolute;width:21px;height:21px;border-radius:50%;background:var(--muted);top:2px;right:3px;transition:.2s}.switch.on{background:rgba(85,230,195,.2)}.switch.on::after{right:23px;background:var(--brand)}
+.bottom-nav{position:absolute;z-index:20;bottom:calc(13px + env(safe-area-inset-bottom));left:13px;right:13px;height:74px;border-radius:25px;padding:7px;background:rgba(8,25,30,.86);backdrop-filter:blur(22px);border:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);box-shadow:0 22px 60px rgba(0,0,0,.45);overflow:visible!important}.light .bottom-nav{background:rgba(255,255,255,.9)}.nav{border:0;background:transparent;color:var(--muted);border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;transition:.2s}.nav svg{width:20px;height:20px}.nav.active{color:var(--brand);background:linear-gradient(145deg,rgba(85,230,195,.15),rgba(107,168,255,.08));transform:translateY(-2px)}
+.bottom-nav .nav.scan-main{transform:translateY(-18px);background:linear-gradient(145deg,var(--brand),var(--brand-2));color:#03221d;border-radius:22px;box-shadow:0 16px 34px rgba(85,230,195,.3);height:62px;min-width:62px}.bottom-nav .nav.scan-main.active{transform:translateY(-21px) scale(1.04)}.bottom-nav .nav.scan-main svg{width:27px;height:27px}.bottom-nav .nav.scan-main span{font-weight:800;color:#03221d}
+.toast{position:absolute;z-index:50;top:72px;left:18px;right:18px;padding:13px 15px;border-radius:16px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);font-size:12.5px;transform:translateY(-120px);opacity:0;transition:.3s}.toast.show{transform:none;opacity:1}
+.modal{position:absolute;z-index:60;inset:0;background:rgba(0,0,0,.52);backdrop-filter:blur(8px);display:none;align-items:flex-end}.modal.show{display:flex}.sheet{width:100%;max-height:82%;overflow-y:auto;background:var(--bg2);border-radius:28px 28px 0 0;padding:20px;border-top:1px solid var(--line);animation:sheet .28s ease;scrollbar-width:none}.sheet::-webkit-scrollbar{display:none}.sheet-handle{width:42px;height:4px;border-radius:8px;background:var(--surface-3);margin:0 auto 18px}
+@keyframes scan{0%,100%{transform:translateY(0)}50%{transform:translateY(86px)}}@keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}@keyframes rise{from{opacity:0;transform:translateY(8px)}}@keyframes sheet{from{transform:translateY(100%)}}
+
+.upload-box{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:15px;border:1px dashed rgba(85,230,195,.45);border-radius:16px;background:rgba(85,230,195,.05);color:var(--brand);font-size:12.5px;font-weight:700}.upload-box input{display:none}.file-name{font-size:11px;color:var(--muted);margin-top:7px}
+.setting.clickable{cursor:pointer}.setting.clickable:active{background:rgba(85,230,195,.05)}.device{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);background:var(--surface);border-radius:16px;margin-top:9px}.device h4{margin:0 0 4px;font-size:13px}.device p{margin:2px 0 0;font-size:10px;color:var(--muted);line-height:1.6}.danger-mini{border:1px solid rgba(255,109,126,.3);background:rgba(255,109,126,.08);color:var(--danger);padding:8px 10px;border-radius:12px;font-size:10px}.verified-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:rgba(94,228,157,.1);color:var(--safe);font-size:10px;font-weight:800}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.info-cell{padding:11px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}.info-cell span{display:block;font-size:9.5px;color:var(--muted);margin-bottom:5px}.info-cell b{font-size:11px}.roadmap{display:grid;gap:10px}.roadmap-item{display:flex;gap:11px;align-items:flex-start;padding:13px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}.roadmap-num{width:31px;height:31px;border-radius:11px;background:rgba(85,230,195,.12);color:var(--brand);display:grid;place-items:center;font-size:11px;font-weight:800;flex:none}.roadmap-item h4{margin:0 0 4px;font-size:12.5px}.roadmap-item p{margin:0;font-size:10px;color:var(--muted);line-height:1.7}.faq{border-bottom:1px solid var(--line);padding:12px 0}.faq b{font-size:12.5px}.faq p{font-size:10px;color:var(--muted);line-height:1.7;margin:6px 0 0}.known-safe{margin-top:10px;padding:11px;border-radius:14px;background:rgba(94,228,157,.08);border:1px solid rgba(94,228,157,.2);font-size:11px;color:var(--safe)}
+.scan-examples{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}.scan-example{border:1px solid var(--line);border-radius:14px;padding:11px;background:var(--surface-2);color:var(--text);font-size:11px;font-weight:700}.scan-example.safe-demo{border-color:rgba(94,228,157,.3);color:var(--safe)}.scan-example.danger-demo{border-color:rgba(255,109,126,.3);color:var(--danger)}
+.latest-report{display:flex;align-items:center;justify-content:space-between;gap:12px}.latest-report .report-copy{min-width:0}.latest-report h4{font-size:14px;margin:0 0 5px}.latest-report p{font-size:11px;color:var(--muted);margin:0}
+.profile-summary{display:grid;grid-template-columns:1fr 1fr;gap:8px}.profile-chip{padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--surface-2)}.profile-chip span{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}.profile-chip b{font-size:12.5px}
+.modal-form{display:grid;gap:11px}.modal-form .field-label{margin-bottom:4px}.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.choice-btn{padding:11px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--text)}.choice-btn.selected{border-color:var(--brand);color:var(--brand);box-shadow:0 0 0 3px rgba(85,230,195,.08)}
+
+/* Typography — compact iPhone 17 Pro Max scale (kept as-is, do not enlarge) */
+html{font-size:15px}
+body{font-weight:400;letter-spacing:0}
+#login{justify-content:flex-start;padding-top:34px}
+#login .logo{width:68px;height:68px;border-radius:22px;margin-bottom:14px;box-shadow:0 14px 34px rgba(85,230,195,.20)}
+#login .logo svg{width:38px}
+.brand h1{font-size:27px;line-height:1.25;font-weight:700;letter-spacing:-.4px}
+.brand p{font-size:13px;line-height:1.65;margin:5px 0 20px}
+.login-card{padding:20px;border-radius:24px}
+.eyebrow{font-size:11px;line-height:1.4;font-weight:600;margin-bottom:6px}
+.login-card h2{font-size:21px;line-height:1.45;font-weight:700;letter-spacing:-.35px;margin-bottom:5px}
+.sub{font-size:13px;line-height:1.75;margin-bottom:15px}
+.field-label{font-size:12px;line-height:1.5;margin-bottom:6px}
+.field{font-size:15px;line-height:1.4;min-height:50px;border-radius:15px;padding:12px 14px}
+.primary,.secondary,.ghost{font-size:15px;line-height:1.35;font-weight:650;min-height:50px;border-radius:15px;padding:12px 15px}
+.login-actions{gap:9px;margin-top:12px}
+.demo-link{font-size:12.5px;line-height:1.5;margin-top:12px}
+.title{font-size:19px;line-height:1.4;font-weight:700}
+.muted{font-size:12px;line-height:1.55}
+.hero h2{font-size:20px;line-height:1.45;font-weight:700}
+.hero p{font-size:12px;line-height:1.7}
+.score strong{font-size:24px}
+.section-title h3{font-size:14px}
+.result-score{font-size:28.5px}
+.nav span{font-size:9.5px}
+@media(max-height:900px){
+  #login{padding-top:18px}
+  #login .logo{width:58px;height:58px;margin-bottom:10px}
+  #login .logo svg{width:32px}
+  .brand h1{font-size:24px}
+  .brand p{margin-bottom:14px}
+  .login-card{padding:17px}
+  .login-card h2{font-size:20px}
+  .field,.primary,.secondary{min-height:46px}
+}
+
+/* v4 — hackathon feature pass: activity card, mini stats, next-steps, QR result, timeline, motion */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.stat-row-4{grid-template-columns:repeat(4,1fr);gap:6px}.stat-row-4 .stat-mini{padding:10px 3px}.stat-row-4 .stat-mini b{font-size:15.5px}.stat-row-4 .stat-mini span{font-size:8.5px;line-height:1.3}
+.stat-mini{padding:11px 6px;text-align:center;border-radius:15px;background:var(--surface-2);border:1px solid var(--line)}
+.stat-mini b{font-size:17.5px;display:block;color:var(--brand)}
+.stat-mini span{font-size:9.5px;color:var(--muted)}
+.activity-card{display:flex;align-items:center;gap:11px}
+.activity-ico{width:38px;height:38px;border-radius:13px;background:rgba(85,230,195,.12);color:var(--brand);display:grid;place-items:center;flex:none}
+.activity-ico svg{width:19px}
+.activity-card .copy{flex:1;min-width:0}
+.activity-card h4{margin:0 0 3px;font-size:13.5px}
+.activity-card p{margin:0;font-size:10.5px;color:var(--muted)}
+.mini-btn{border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:10px;font-weight:700;padding:8px 11px;border-radius:12px;flex:none}
+.next-steps{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.next-steps h4{font-size:13.5px;margin:0 0 10px}
+.step-list{display:grid;gap:8px;margin-bottom:13px}
+.step-list div{display:flex;gap:8px;font-size:11px;color:var(--muted);align-items:flex-start;line-height:1.6}
+.step-list div i{width:16px;height:16px;border-radius:50%;flex:none;display:grid;place-items:center;font-style:normal;font-size:9.5px;margin-top:1px}
+.step-list.warn-list div i{background:rgba(255,109,126,.14);color:var(--danger)}
+.step-list.safe-list div i{background:rgba(94,228,157,.14);color:var(--safe)}
+.actions3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:2px}
+.actions3 button{font-size:10.5px;padding:11px 4px;border-radius:13px;min-height:0}
+.qr-result{margin-top:14px;animation:rise .4s ease}
+.qr-result .result-head{margin-bottom:4px}
+.qr-info{display:grid;gap:8px;margin-top:12px}
+.qr-info .row{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:13px;background:var(--surface-2);border:1px solid var(--line);font-size:11px}
+.qr-info .row span{color:var(--muted)}.qr-info .row b{font-size:12px}
+.timeline{display:grid;gap:0;margin:14px 0}
+.t-item{display:flex;gap:11px;position:relative;padding-bottom:20px}
+.t-item:last-child{padding-bottom:0}
+.t-dot{width:22px;height:22px;border-radius:50%;background:var(--surface-2);border:2px solid var(--line);display:grid;place-items:center;flex:none;font-size:12px;position:relative;z-index:1;color:var(--muted)}
+.t-item.done .t-dot{background:var(--brand);border-color:var(--brand);color:#03221d}
+.t-item.active .t-dot{background:var(--surface);border-color:var(--brand);color:var(--brand);animation:pulse 1.4s infinite}
+.t-item.rejected .t-dot{background:var(--danger);border-color:var(--danger);color:#2b0006}
+.t-item:not(:last-child)::before{content:"";position:absolute;top:22px;right:10px;width:2px;bottom:0;background:var(--line)}
+.t-item.done:not(:last-child)::before{background:var(--brand)}
+.t-copy h5{margin:0 0 3px;font-size:12.5px}
+.t-copy p{margin:0;font-size:10px;color:var(--muted);line-height:1.6}
+.avatar-edit{position:relative;width:64px;height:64px;margin:0 auto 16px}
+.avatar-edit .avatar{width:64px;height:64px;font-size:23.5px;border-radius:20px}
+.avatar-edit button{position:absolute;bottom:-4px;left:-4px;width:26px;height:26px;border-radius:9px;background:var(--brand);border:2px solid var(--bg2);color:#03221d;display:grid;place-items:center;font-size:14px;font-weight:900}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(85,230,195,.35)}50%{box-shadow:0 0 0 5px rgba(85,230,195,0)}}
+@keyframes splashPop{0%{opacity:0;transform:scale(.72)}65%{opacity:1;transform:scale(1.07)}100%{transform:scale(1)}}
+.logo.splash{animation:splashPop .65s cubic-bezier(.2,1.5,.4,1)}
+.primary:active,.secondary:active,.scan-card:active,.type:active,.choice-btn:active,.icon-btn:active,.nav:active,.mini-btn:active,.scan-example:active,.report-item:active{transform:scale(.96)}
+.emergency-box{display:grid;gap:8px;margin-top:10px}
+.emergency-box div{display:flex;gap:8px;align-items:flex-start;font-size:11px;color:var(--muted);line-height:1.7}
+.emergency-box i{width:16px;height:16px;border-radius:50%;background:rgba(255,109,126,.14);color:var(--danger);display:grid;place-items:center;font-style:normal;font-size:9.5px;flex:none;margin-top:1px}
+.demo-note{font-size:10px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+
+/* v5 — banking-integration demo: push notification + bank redirect */
+.push-notif{position:absolute;z-index:80;top:14px;left:14px;right:14px;background:rgba(18,26,31,.97);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 50px rgba(0,0,0,.5);padding:13px 14px;display:flex;gap:11px;align-items:flex-start;transform:translateY(-160px);transition:.4s cubic-bezier(.2,1,.3,1);cursor:pointer}
+.push-notif.show{transform:translateY(0)}
+.push-notif:active{transform:scale(.97)}
+.push-notif .pn-icon{width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#03221d;flex:none}
+.push-notif .pn-icon svg{width:18px}
+.push-notif .pn-body{flex:1;min-width:0}
+.push-notif .pn-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.push-notif .pn-app{font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.3px}
+.push-notif .pn-time{font-size:9.5px;color:var(--muted)}
+.push-notif h5{margin:0 0 3px;font-size:12.5px;font-weight:800;color:var(--text)}
+.push-notif p{margin:0;font-size:11px;color:var(--muted);line-height:1.5}
+.push-notif.danger p{color:var(--danger)}
+
+.bank-overlay{position:absolute;z-index:90;inset:0;background:linear-gradient(180deg,#0e1926,#050a10);display:none;flex-direction:column;align-items:center;justify-content:center;padding:30px;text-align:center;animation:rise .3s ease}
+.bank-overlay.show{display:flex}
+.bank-overlay .bk-logo{width:58px;height:58px;border-radius:18px;background:linear-gradient(145deg,#2b4a6b,#16283b);display:grid;place-items:center;margin-bottom:16px;color:#bcd2e8;border:1px solid rgba(255,255,255,.08)}
+.bank-overlay .bk-logo svg{width:28px}
+.bank-overlay h3{font-size:17.5px;margin:0 0 8px;color:#fff}
+.bank-overlay p{font-size:12.5px;color:#93a6b8;line-height:1.7;margin:0 0 22px;max-width:280px}
+.bank-overlay .bk-spinner{width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,.15);border-top-color:var(--brand);animation:bkspin .8s linear infinite;margin-bottom:16px}
+.bank-overlay .bk-hand{font-size:10.5px;color:#5f7286;display:flex;align-items:center;gap:6px}
+.bank-overlay .bk-hand svg{width:13px;color:var(--brand)}
+@keyframes bkspin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="shell"><div class="phone">
+  <div class="statusbar"><span>9:41</span><span>● ●●</span></div>
+  <div class="app">
+    <div id="toast" class="toast"></div>
+
+    <section id="login" class="screen active">
+      <div class="logo splash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4.8 6v5.5c0 4.5 2.9 7.7 7.2 9 4.3-1.3 7.2-4.5 7.2-9V6z"/><path d="m8.7 12 2.1 2.1 4.6-5"/></svg></div>
+      <div class="brand" data-i18n-group="brand"><h1>درء</h1><p data-i18n="tagline">حماية ذكية تبدأ قبل الدفع</p></div>
+      <div class="login-card">
+        <div class="eyebrow" data-i18n="secureLogin">دخول آمن</div><h2 data-i18n="welcomeBack">مرحبًا بعودتك</h2><p class="sub" data-i18n="loginSub">سجلي برقم الجوال المرتبط بالخدمة للوصول إلى أدوات الحماية والتحقق.</p>
+        <label class="field-label" data-i18n="phoneLabel">رقم الجوال</label><input id="phoneInput" class="field" inputmode="tel" placeholder="05XXXXXXXX" value="0551234567" />
+        <div class="login-actions"><button id="loginBtn" class="primary" data-i18n="sendOtp">إرسال رمز التحقق</button><button id="bioBtn" class="secondary" data-i18n="bioLogin">الدخول بالبصمة</button></div>
+        <button id="demoBtn" class="demo-link" data-i18n="runDemo">تشغيل العرض التجريبي</button>
+      </div>
+    </section>
+
+    <section id="home" class="screen">
+      <div class="topbar"><div class="user"><div class="avatar" id="homeAvatar">ف</div><div><div class="muted" id="homeGreeting">مساء الخير</div><div class="title" id="homeName">فاطمة</div></div></div><button id="themeTop" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.7A8 8 0 1 1 11.3 3 6.3 6.3 0 0 0 21 12.7Z"/></svg></button></div>
+      <div class="hero"><div class="hero-row"><div><div class="eyebrow" data-i18n="todayStatus">حالتك الأمنية اليوم</div><h2 id="heroTitle" data-i18n="excellentProtection">حماية ممتازة</h2><p id="heroText" data-i18n="heroDesc">لم يتم رصد تهديدات خطيرة. ابدئي فحصًا واحدًا من زر الفحص العائم بالأسفل.</p></div><div class="score" id="scoreRing"><div class="score-inner"><div><strong id="scoreVal">0%</strong><span data-i18n="securityScore">درجة الأمان</span></div></div></div></div></div>
+
+      <div class="section-title"><h3 data-i18n="lastActivity">آخر نشاط أمني</h3></div>
+      <div class="card activity-card">
+        <div class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <div class="copy"><h4 id="activityTitle">تم فحص رابط قبل دقيقتين</h4><p id="activityText">النتيجة: آمن</p></div>
+        <button id="activityReportBtn" class="mini-btn" data-i18n="viewReport">عرض التقرير</button>
+      </div>
+      <div class="stat-row">
+        <div class="stat-mini"><b id="statScans">32</b><span data-i18n="statScans">فحصًا هذا الأسبوع</span></div>
+        <div class="stat-mini"><b id="statRisks">4</b><span data-i18n="statRisks">مخاطر تم اكتشافها</span></div>
+        <div class="stat-mini"><b id="statReports">3</b><span data-i18n="statReports">بلاغات تمت معالجتها</span></div>
+      </div>
+
+      <div class="section-title"><h3 data-i18n="securityAlert">تنبيه أمني</h3><button id="alertDetails" data-i18n="details">التفاصيل</button></div>
+      <div class="card alert-card"><div class="alert-icon">!</div><div><h4 data-i18n="alertTitle">حملة روابط شحن مزيفة</h4><p data-i18n="alertText">تأكدي من عنوان الموقع قبل إدخال بيانات البطاقة أو رمز التحقق.</p></div></div>
+
+      <div class="section-title"><h3 data-i18n="lastReportResult">آخر نتيجة بلاغ</h3><button data-go="reports" data-i18n="viewReports">عرض البلاغات</button></div>
+      <div id="homeReportCard" class="card latest-report"><div class="report-copy"><h4 id="homeReportTitle">تم اعتماد بلاغك الأخير</h4><p id="homeReportText">تم التحقق من الرابط وإضافته إلى قاعدة المخاطر.</p></div><button id="homeReportBtn" class="mini-btn" data-i18n="viewDetails2">عرض التفاصيل</button></div>
+    </section>
+
+    <section id="scan" class="screen">
+      <div class="topbar"><div><div class="muted" data-i18n="protectionCenter">مركز الحماية</div><div class="title" data-i18n="chooseScanType">اختر نوع الفحص</div></div><button id="scanHelp" class="icon-btn">?</button></div>
+      <div class="scan-grid">
+        <button class="scan-card" data-set="qr"><div class="ico">⌗</div><div><h3 data-i18n="scanQrTitle">فحص QR</h3><p data-i18n="scanQrDesc">تحليل وجهة الدفع وبيانات التاجر.</p></div></button>
+        <button class="scan-card active" data-set="link"><div class="ico">↗</div><div><h3 data-i18n="scanLinkTitle">فحص رابط</h3><p data-i18n="scanLinkDesc">اكتشاف الروابط المقلدة والتصيد.</p></div></button>
+        <button class="scan-card" data-set="site"><div class="ico">◎</div><div><h3 data-i18n="scanSiteTitle">موقع أو متجر</h3><p data-i18n="scanSiteDesc">التحقق من سمعة النطاق والمتجر.</p></div></button>
+        <button class="scan-card" data-set="iban"><div class="ico">▤</div><div><h3 data-i18n="scanIbanTitle">حساب بنكي</h3><p data-i18n="scanIbanDesc">مطابقة المستفيد وسجل البلاغات.</p></div></button>
+      </div>
+
+      <div id="qrPanel" class="panel hidden">
+        <div class="qr-stage"><div class="qr-frame"></div><div class="qr-demo" data-i18n="qrDemoHint">عرض تجريبي لمحاكاة الكاميرا</div></div>
+        <div class="scan-examples"><button id="qrSafeExample" class="scan-example safe-demo" data-i18n="qrSafeBtn">مسح رمز آمن (تاجر موثّق)</button><button id="qrDangerExample" class="scan-example danger-demo" data-i18n="qrDangerBtn">مسح رمز مشبوه</button></div>
+        <div id="qrProgress" class="hidden"><div class="progress"><span id="qrProgressBar"></span></div><div id="qrProgressText" class="steps"><i></i><span data-i18n="starting">جارٍ بدء التحليل...</span></div></div>
+        <div id="qrResult" class="qr-result hidden"></div>
+      </div>
+
+      <div id="inputPanel" class="panel">
+        <label id="scanLabel" class="field-label" data-i18n="enterLink">أدخل الرابط المراد تحليله</label><input id="scanInput" class="field" placeholder="https://example.com"/>
+        <div class="scan-examples"><button id="scanSafeExample" class="scan-example safe-demo" data-i18n="trySafeExample">تجربة مثال آمن</button><button id="scanDangerExample" class="scan-example danger-demo" data-i18n="tryDangerExample">تجربة مثال خطر</button></div>
+        <button id="analyzeBtn" class="primary" style="margin-top:12px" data-i18n="analyzeNow">تحليل الآن</button>
+        <div id="scanProgress" class="hidden"><div class="progress"><span id="progressBar"></span></div><div id="progressText" class="steps"><i></i><span data-i18n="starting">جارٍ بدء التحليل...</span></div></div>
+        <div id="scanResult" class="result">
+          <div class="result-head"><div><div class="muted" data-i18n="analysisResult">نتيجة التحليل</div><div id="resultTitle" class="title">عالي الخطورة</div></div><div id="resultScore" class="result-score danger">94%</div></div>
+          <div id="reasonList" class="reason-list"></div>
+          <div id="recLine" class="rec-line"></div>
+          <button id="detailsBtn" class="primary" style="width:100%;margin-top:14px" data-i18n="viewFullReport">عرض التقرير الكامل</button>
+          <div id="nextSteps" class="next-steps hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai" class="screen">
+      <div class="topbar"><div><div class="muted" data-i18n="aiSubtitle">مساعدك الأمني</div><div class="title" data-i18n="aiTitle">درء AI</div></div><div class="avatar" style="border-radius:50%">AI</div></div>
+      <div class="chat"><div id="messages" class="messages"><div class="bubble ai" data-i18n="aiGreeting">مرحبًا، أنا درء AI. اسأليني عن رابط، رسالة، QR، حساب بنكي، أو أي موقف أمني.</div></div>
+        <div class="suggestions" id="suggestionsRow"></div>
+        <div class="composer"><button class="attach">＋</button><input id="chatInput" class="field" placeholder="اكتبي سؤالك هنا..." data-i18n-ph="chatPlaceholder"/><button id="sendBtn" class="send">↑</button></div>
+      </div>
+    </section>
+
+    <section id="reports" class="screen">
+      <div class="topbar"><div><div class="muted" data-i18n="communityContribution">مساهمة مجتمعية</div><div class="title" data-i18n="reportsTitle">البلاغات</div></div><button id="newReport" class="icon-btn">＋</button></div>
+      <div class="report-steps"><span class="on"></span><span></span><span></span></div>
+      <div id="report1" class="report-view active"><div class="panel"><div class="eyebrow" data-i18n="step1of3">الخطوة 1 من 3</div><h3 style="margin:0 0 12px;font-size:16px" data-i18n="chooseReportType">اختر نوع البلاغ</h3><div class="types"><button class="type selected" data-i18n="typeLink">رابط</button><button class="type">QR</button><button class="type" data-i18n="typeIban">حساب بنكي</button><button class="type" data-i18n="typeStore">متجر</button><button class="type" data-i18n="typeMsg">رسالة</button><button class="type" data-i18n="typePhone">رقم هاتف</button></div><button id="reportNext1" class="primary" style="margin-top:14px" data-i18n="next">التالي</button></div></div>
+      <div id="report2" class="report-view"><div class="panel"><div class="eyebrow" data-i18n="step2of3">الخطوة 2 من 3</div><label class="field-label" data-i18n="entityData">بيانات الجهة</label><input id="reportSubject" class="field" placeholder="أدخل الرابط أو الحساب أو الرقم"/><label class="field-label" style="margin-top:12px" data-i18n="reportDetails">تفاصيل البلاغ</label><textarea id="reportText" class="field" rows="4" placeholder="اشرح ما حدث باختصار..."></textarea><label class="upload-box"><span data-i18n="attachImage">إرفاق صورة أو لقطة شاشة</span><input id="reportImage" type="file" accept="image/*"/></label><div id="reportFileName" class="file-name" data-i18n="noImageChosen">لم يتم اختيار صورة</div><div class="actions"><button id="reportBack" class="secondary" data-i18n="back">رجوع</button><button id="reportNext2" class="primary" data-i18n="review">مراجعة</button></div></div></div>
+      <div id="report3" class="report-view"><div class="panel"><div class="eyebrow" data-i18n="step3of3">الخطوة 3 من 3</div><h3 style="font-size:16px" data-i18n="reviewReport">مراجعة البلاغ</h3><p id="reportSummary" class="sub"></p><button id="submitReport" class="primary" data-i18n="submitForAnalysis">إرسال البلاغ للتحليل</button></div></div>
+      <div class="section-title"><h3 data-i18n="yourPastReports">بلاغاتك السابقة</h3></div>
+      <div id="reportHistory" class="report-history"></div>
+    </section>
+
+    <section id="account" class="screen">
+      <div class="topbar"><div class="user"><div class="avatar" id="accountAvatar">ف</div><div><div class="muted" id="accountSubtitle" data-i18n="userAccount">حساب المستخدم</div><div class="title" id="accountName">فاطمة عبدالله</div></div></div></div>
+      <div class="stat-row stat-row-4" style="margin-top:2px">
+        <div class="stat-mini"><b id="accScore">91%</b><span data-i18n="accScoreLabel">أمان الحساب</span></div>
+        <div class="stat-mini"><b id="accScans">32</b><span data-i18n="accScansLabel">فحوصات</span></div>
+        <div class="stat-mini"><b id="accReports">3</b><span data-i18n="accReportsLabel">بلاغات</span></div>
+        <div class="stat-mini"><b id="accRisks">4</b><span data-i18n="accRisksLabel">مخاطر</span></div>
+      </div>
+      <div class="panel" style="margin-top:13px"><div class="profile-summary"><div class="profile-chip"><span data-i18n="phoneLabel2">رقم الجوال</span><b id="profilePhone">0551234567</b></div><div class="profile-chip"><span data-i18n="emailLabel">البريد الإلكتروني</span><b id="profileEmail">fatimah@example.com</b></div><div class="profile-chip" style="grid-column:1/-1"><span data-i18n="genderLabel">الجنس</span><b id="profileGender">أنثى</b></div></div><button id="editProfileRow" class="secondary" style="width:100%;margin-top:12px" data-i18n="editMyInfo">تعديل معلوماتي</button></div>
+      <div class="panel settings"><div class="setting"><span id="themeLabel" data-i18n="darkMode">الوضع الداكن</span><button id="themeSwitch" class="switch on"></button></div><div class="setting"><span data-i18n="securityNotifs">الإشعارات الأمنية</span><button class="switch on"></button></div><div class="setting"><span data-i18n="bioLoginSetting">تسجيل الدخول بالبصمة</span><button class="switch"></button></div><div id="devicesRow" class="setting clickable"><span data-i18n="registeredDevices">الأجهزة المسجلة</span><b id="deviceCount">2 ‹</b></div><div id="languageRow" class="setting clickable"><span data-i18n="language">اللغة</span><b id="languageValue">العربية ‹</b></div></div>
+      <div class="panel settings"><div id="privacyRow" class="setting clickable"><span data-i18n="privacySecurity">الخصوصية والأمان</span><span>‹</span></div><div id="helpRow" class="setting clickable"><span data-i18n="helpCenter">مركز المساعدة</span><span>‹</span></div><div id="visionRow" class="setting clickable"><span data-i18n="futureVision">الرؤية المستقبلية</span><span>‹</span></div></div>
+
+      <div class="panel" style="margin-top:13px">
+        <div class="section-title" style="margin:0 0 4px"><h3 data-i18n="demoBankingTitle">عرض تجريبي: التكامل البنكي</h3></div>
+        <p class="sub" style="margin-bottom:12px" data-i18n="demoBankingDesc">محاكاة لكيفية عمل درء بعد التكامل مع تطبيق البنك (المرحلة الثانية من خارطة الطريق).</p>
+        <button id="demoNotifBtn" class="secondary" style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span data-i18n="demoNotifBtn">محاكاة إشعار دفع من إنماء</span></button>
+        <button id="demoTransferBtn" class="secondary" style="width:100%;margin-top:9px;display:flex;align-items:center;justify-content:center;gap:8px"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 12 4l9 6"/><path d="M4 10v9M9 10v9M15 10v9M20 10v9"/><path d="M3 21h18"/></svg><span data-i18n="demoTransferBtn">محاكاة تحويل عبر إنماء</span></button>
+        <div class="demo-note" data-i18n="demoDisclaimer">هذه بيانات تجريبية لأغراض العرض في الهاكاثون، وليست قنوات دعم فعلية.</div>
+      </div>
+
+      <button id="logoutBtn" class="secondary" style="width:100%;margin-top:13px;color:var(--danger)" data-i18n="logout">تسجيل الخروج</button>
+    </section>
+
+    <nav id="bottomNav" class="bottom-nav hidden">
+      <button class="nav active" data-target="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V21H6a3 3 0 0 1-3-3z"/><path d="M9 21v-7h6v7"/></svg><span data-i18n="navHome">الرئيسية</span></button>
+      <button class="nav" data-target="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M12 8v5M12 16h.01"/></svg><span data-i18n="navReports">البلاغات</span></button>
+      <button class="nav scan-main" data-target="scan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7V4h3M17 4h3v3M20 17v3h-3M7 20H4v-3"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg><span data-i18n="navScan">الفحص</span></button>
+      <button class="nav" data-target="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg><span data-i18n="navAi">درء AI</span></button>
+      <button class="nav" data-target="account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span data-i18n="navAccount">حسابي</span></button>
+    </nav>
+
+    <div id="pushNotif" class="push-notif">
+      <div class="pn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4.8 6v5.5c0 4.5 2.9 7.7 7.2 9 4.3-1.3 7.2-4.5 7.2-9V6z"/><path d="m8.7 12 2.1 2.1 4.6-5"/></svg></div>
+      <div class="pn-body">
+        <div class="pn-top"><span class="pn-app" data-i18n="appName">درء</span><span class="pn-time" id="pnTime">الآن</span></div>
+        <h5 id="pnTitle">دفعتِ للتو ببطاقة الإنماء •• 4471</h5>
+        <p id="pnText">هذا الحساب يبدو مشبوهًا — اضغطي لعرض التحليل</p>
+      </div>
+    </div>
+
+    <div id="bankOverlay" class="bank-overlay">
+      <div class="bk-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10 12 4l9 6"/><path d="M4 10v9M9 10v9M15 10v9M20 10v9"/><path d="M3 21h18"/></svg></div>
+      <h3 data-i18n="bankName">بنك الإنماء</h3>
+      <div class="bk-spinner"></div>
+      <p id="bankOverlayText" data-i18n="bankVerifyingText">جارٍ التحقق من الحساب البنكي عبر درء قبل إتمام التحويل...</p>
+      <div class="bk-hand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4.8 6v5.5c0 4.5 2.9 7.7 7.2 9 4.3-1.3 7.2-4.5 7.2-9V6z"/></svg><span data-i18n="protectedByDeraa">محمي بواسطة درء</span></div>
+    </div>
+
+    <div id="modal" class="modal"><div class="sheet"><div class="sheet-handle"></div><div id="modalContent"></div><button id="closeModal" class="secondary" style="width:100%;margin-top:15px" data-i18n="close">إغلاق</button></div></div>
+  </div>
+</div></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ---------- fit the fixed-design phone (440x956) to the real viewport ---------- */
+function fitPhone(){
+  const shell=document.querySelector('.shell');
+  if(!shell) return;
+  const cs=getComputedStyle(shell);
+  const padX=parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight);
+  const availW=window.innerWidth-padX;
+  /* width-only: mobile browser toolbars show/hide and jitter innerHeight
+     constantly (address bar, keyboard, etc). Sizing off height made the
+     whole UI visibly grow/shrink as that happened. Width is stable, and
+     since the phone's own screens already scroll internally, a slightly
+     tall phone on short viewports just scrolls (no visible scrollbar)
+     instead of shrinking every font on the page. */
+  /* must match .phone's actual CSS width (440) exactly — using a smaller
+     number here would let scale exceed availW/440, pushing the phone wider
+     than the viewport and silently clipping content off the sides. */
+  const scale=Math.min(availW/440, 1);
+  document.documentElement.style.setProperty('--ph-scale', scale);
+}
+window.addEventListener('resize', fitPhone);
+window.addEventListener('orientationchange', fitPhone);
+fitPhone();
+
+const screens=$$('.screen'), navs=$$('.nav');
+const nav=$('#bottomNav'); let current='login', mode='link', lastResult=null;
+function T(key){const t=translations[appLang];return (t&&t[key])||key}
+function toast(text){const t=$('#toast');t.textContent=text;t.classList.add('show');clearTimeout(toast._h);toast._h=setTimeout(()=>t.classList.remove('show'),2300)}
+function go(id){current=id;screens.forEach(s=>s.classList.toggle('active',s.id===id));navs.forEach(n=>n.classList.toggle('active',n.dataset.target===id));nav.classList.toggle('hidden',id==='login')}
+navs.forEach(n=>n.onclick=()=>go(n.dataset.target));
+$$('[data-go]').forEach(b=>b.onclick=()=>{if(b.dataset.mode)setMode(b.dataset.mode);go(b.dataset.go)});
+
+/* ---------- login ---------- */
+function login(){if($('#phoneInput').value.trim().length<10){toast(T('badPhone'));return}toast(T('verifiedOk'));setTimeout(()=>{go('home');animateScore(91)},500)}
+$('#loginBtn').onclick=login;
+$('#bioBtn').onclick=()=>{toast(T('bioOk'));setTimeout(()=>{go('home');animateScore(91)},450)};
+$('#demoBtn').onclick=()=>{go('home');animateScore(91);toast(T('demoStarted'))};
+
+/* ---------- animated security score ---------- */
+function animateScore(target){
+  const ring=$('#scoreRing'),val=$('#scoreVal');let cur=parseInt(val.textContent)||0;
+  clearInterval(animateScore._t);
+  animateScore._t=setInterval(()=>{
+    cur+= (target>cur?1:-1);
+    ring.style.setProperty('--v',cur);
+    val.textContent=cur+'%';
+    if(cur===target)clearInterval(animateScore._t);
+  },14);
+}
+
+/* ---------- scan type switching ---------- */
+function setMode(m){
+  mode=m;
+  $$('.scan-card').forEach(c=>c.classList.toggle('active',c.dataset.set===m));
+  $('#qrPanel').classList.toggle('hidden',m!=='qr');
+  $('#inputPanel').classList.toggle('hidden',m==='qr');
+  $('#scanResult').classList.remove('show');$('#qrResult').classList.add('hidden');
+  const map={link:[T('enterLink'),'https://example.com'],site:[T('enterSiteLink'),'https://store.example'],iban:[T('enterIban'),'SA00 0000 0000 0000 0000 0000']};
+  if(map[m]){$('#scanLabel').textContent=map[m][0];$('#scanInput').placeholder=map[m][1]}
+}
+$$('[data-set]').forEach(b=>b.onclick=()=>setMode(b.dataset.set));
+
+const scanExamples={link:{safe:'https://www.amazon.sa',danger:'https://amazon-secure-verify.example'},site:{safe:'https://www.jarir.com',danger:'https://best-offers-store.example'},iban:{safe:'SA0356789012345678901234',danger:'SA0011111111111111111111'},qr:{safe:'QR_MERCHANT_VERIFIED',danger:'QR_PERSONAL_REDIRECT'}};
+function fillScanExample(kind){
+  const val=scanExamples[mode]?.[kind];if(!val)return;
+  if(mode==='qr'){toast(kind==='safe'?T('qrSafeToast'):T('qrDangerToast'));runQR(kind==='danger');return}
+  $('#scanInput').value=val;toast(kind==='safe'?T('safeFilled'):T('dangerFilled'));
+}
+$('#scanSafeExample').onclick=()=>fillScanExample('safe');
+$('#scanDangerExample').onclick=()=>fillScanExample('danger');
+$('#qrSafeExample').onclick=()=>fillScanExample('safe');
+$('#qrDangerExample').onclick=()=>fillScanExample('danger');
+
+/* ---------- QR dedicated result ---------- */
+function runQR(bad){
+  $('#qrResult').classList.add('hidden');$('#qrProgress').classList.remove('hidden');$('#qrProgressBar').style.width='0';
+  const steps=[T('qrStep1'),T('qrStep2'),T('qrStep3'),T('qrStep4')];let i=0;
+  const timer=setInterval(()=>{
+    $('#qrProgressText span').textContent=steps[i];$('#qrProgressBar').style.width=((i+1)/steps.length*100)+'%';i++;
+    if(i===steps.length){clearInterval(timer);setTimeout(()=>{$('#qrProgress').classList.add('hidden');showQrResult(bad)},350)}
+  },380);
+}
+function showQrResult(bad){
+  const data=bad?{merchant:T('qrBadMerchant'),type:T('qrBadType'),dest:T('qrBadDest'),extracted:'SA00•• •••• •••• 4471 (شخصي)',match:T('no'),score:92,reports:3,reason:T('qrBadReason')}
+              :{merchant:T('qrGoodMerchant'),type:T('qrGoodType'),dest:T('qrGoodDest'),extracted:'TRX-MERCHANT-88231 (Jarir POS)',match:T('yes'),score:4,reports:0,reason:T('qrGoodReason')};
+  lastResult={bad,kind:'qr',score:data.score,details:{domainAge:'—',https:T('notApplicable'),urlIssue:data.reason,similarity:bad?'—':'—',commercial:T('notApplicable'),ecommerce:T('notApplicable'),merchant:data.merchant}};
+  const rows=[[T('merchantName'),data.merchant],[T('entityType'),data.type],[T('paymentDest'),data.dest],[T('extractedAccount'),data.extracted],[T('nameMatch'),data.match],[T('reportCount'),data.reports],[T('decisionReason'),data.reason]];
+  $('#qrResult').innerHTML=`<div class="result-head"><div><div class="muted">${T('scanResult')}</div><div class="title">${bad?T('highRisk'):T('safeInitial')}</div></div><div class="result-score ${bad?'danger':'safe'}">${data.score}%</div></div>
+    <div class="qr-info">${rows.map(r=>`<div class="row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')}</div>
+    ${nextStepsHtml(bad)}`;
+  $('#qrResult').classList.remove('hidden');
+}
+
+/* ---------- next-steps block ---------- */
+function nextStepsHtml(bad){
+  if(bad){
+    return `<div class="next-steps"><h4>${T('whatNow')}</h4><div class="step-list warn-list">
+      <div><i>!</i><span>${T('ns1')}</span></div>
+      <div><i>!</i><span>${T('ns2')}</span></div>
+      <div><i>!</i><span>${T('ns3')}</span></div>
+      <div><i>!</i><span>${T('ns4')}</span></div>
+    </div>
+    <div class="actions3">
+      <button class="primary" onclick="go('reports')">${T('fileReport')}</button>
+      <button class="secondary" onclick="copyReport()">${T('copyReport')}</button>
+      <button class="secondary" onclick="cancelOp()">${T('cancelOperation')}</button>
+    </div>
+    </div>`;
+  }
+  return `<div class="next-steps"><h4>${T('whatNow')}</h4><div class="step-list safe-list">
+    <div><i>✓</i><span>${T('safe1')}</span></div>
+    <div><i>✓</i><span>${T('safe2')}</span></div>
+    <div><i>✓</i><span>${T('safe3')}</span></div>
+  </div></div>`;
+}
+function copyReport(){
+  if(!lastResult){toast(T('noReportYet'));return}
+  const text=`${T('appName')} — ${T('analysisResult')}\n${T('scoreLabel')}: ${lastResult.score}%\n${T('decisionReason')}: ${(lastResult.reasons&&lastResult.reasons[0])||lastResult.details?.urlIssue||''}`;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(()=>toast(T('copied'))).catch(()=>toast(T('copied')))}else{toast(T('copied'))}
+}
+function cancelOp(){toast(T('opCancelled'));$('#scanResult').classList.remove('show');$('#qrResult').classList.add('hidden')}
+
+/* ---------- generic scan analyze ---------- */
+function analyze(){
+  const v=$('#scanInput').value.trim().toLowerCase();
+  if(!v){toast(T('enterDataFirst'));return}
+  $('#scanResult').classList.remove('show');$('#scanProgress').classList.remove('hidden');$('#progressBar').style.width='0';
+  const steps=[T('step1'),T('step2'),T('step3'),T('step4'),T('step5')];let i=0;
+  const timer=setInterval(()=>{
+    $('#progressText span').textContent=steps[i];$('#progressBar').style.width=((i+1)/steps.length*100)+'%';i++;
+    if(i===steps.length){clearInterval(timer);setTimeout(()=>{
+      $('#scanProgress').classList.add('hidden');
+      const bad=/fake|verify|secure|urgent|login-bank|1111|0000|offer|discount|bonus|prize|reward|gift|cashback|confirm|winner|claim|limited|flash-sale|best-offers/.test(v)||(v.match(/-/g)||[]).length>=2;
+      makeResult(bad,mode,v);
+    },350)}
+  },380);
+}
+function makeResult(bad,kind,inputValue=''){
+  const known=/amazon|noon|stc|alinma|alrajhi|apple|google|microsoft|jarir|extra/i.test(inputValue);
+  const safeReasons=kind==='site'?[T('siteSafe1'),T('siteSafe2'),T('siteSafe3'),T('siteSafe4')]:[T('linkSafe1'),T('linkSafe2'),T('linkSafe3')];
+  const badReasons=kind==='iban'?[T('ibanBad1'),T('ibanBad2'),T('ibanBad3')]:kind==='site'?[T('siteBad1'),T('siteBad2'),T('siteBad3'),T('siteBad4')]:[T('linkBad1'),T('linkBad2'),T('linkBad3'),T('linkBad4')];
+  const details={domainAge:bad?T('days12'):known?T('years9'):T('years4m3'),https:bad?T('httpsWeak'):T('httpsOk'),urlIssue:bad?T('redirectIssue'):T('noIssue'),similarity:bad?'92% — '+T('officialEntity'):T('lowSimilarity'),reportCount:bad?3:0,lastReportDate:bad?T('days3ago'):T('none'),redirect:bad?T('yes'):T('no'),merchant:known&&!bad?T('recognizedEntity'):T('unclassified'),dataMatch:bad?T('no'):T('yes'),lastUpdate:T('justNow'),commercial:kind==='site'?(bad?T('unverified'):'1010894572 — '+T('active')):T('notApplicable'),ecommerceStatus:kind==='site'?(bad?T('missingOrExpired'):T('validDoc')):T('notApplicable')};
+  lastResult={bad,kind,reasons:bad?badReasons:safeReasons,score:bad?94:known?3:8,details,known};
+  $('#resultTitle').textContent=bad?T('highRisk'):known?T('trustedEntity'):T('safeInitial');
+  $('#resultScore').textContent=lastResult.score+'%';$('#resultScore').className='result-score '+(bad?'danger':'safe');
+  $('#reasonList').innerHTML=(bad?badReasons:safeReasons).slice(0,1).map(r=>`<div class="reason ${bad?'danger':'safe'}"><i></i><span>${r}</span></div>`).join('')+(known&&!bad?`<div class="known-safe">✓ ${T('knownBadge')}</div>`:'');
+  $('#recLine').innerHTML=`<span>${bad?'⛔':'✅'}</span><span><b>${T('recommendation')}:</b> ${bad?T('recBad'):T('recSafe')}</span>`;
+  $('#nextSteps').innerHTML=nextStepsHtml(bad);$('#nextSteps').classList.remove('hidden');
+  $('#scanResult').classList.add('show');
+  if(bad){animateScore(88)}
+}
+$('#analyzeBtn').onclick=analyze;
+$('#detailsBtn').onclick=()=>{
+  if(!lastResult)return;const d=lastResult.details;
+  const siteRows=lastResult.kind==='site'?`<div class="info-cell"><span>${T('commercialReg')}</span><b>${d.commercial}</b></div><div class="info-cell"><span>${T('ecommerceDoc')}</span><b>${d.ecommerceStatus}</b></div>`:'';
+  showModal(`<div class="eyebrow">${T('fullRiskReport')}</div><h2 style="margin:0 0 8px">${lastResult.bad?T('securityWarning'):lastResult.known?T('trustedEntity'):T('safeResult')}</h2><p class="sub">${T('riskScore')}: <b>${lastResult.score}%</b></p>${lastResult.known&&!lastResult.bad?`<div class="verified-badge">✓ ${T('knownBadge')}</div>`:''}
+  <div class="info-grid">
+    <div class="info-cell"><span>${T('domainAge')}</span><b>${d.domainAge}</b></div>
+    <div class="info-cell"><span>${T('httpsStatus')}</span><b>${d.https}</b></div>
+    <div class="info-cell"><span>${T('domainReputation')}</span><b>${d.merchant}</b></div>
+    <div class="info-cell"><span>${T('reportCount')}</span><b>${d.reportCount}</b></div>
+    <div class="info-cell"><span>${T('lastReportDate')}</span><b>${d.lastReportDate}</b></div>
+    <div class="info-cell"><span>${T('officialSimilarity')}</span><b>${d.similarity}</b></div>
+    <div class="info-cell"><span>${T('suspiciousRedirect')}</span><b>${d.redirect}</b></div>
+    <div class="info-cell"><span>${T('merchantBeneficiary')}</span><b>${d.merchant}</b></div>
+    <div class="info-cell"><span>${T('entityDataMatch')}</span><b>${d.dataMatch}</b></div>
+    <div class="info-cell"><span>${T('lastUpdateTime')}</span><b>${d.lastUpdate}</b></div>
+    ${siteRows}
+  </div>
+  <div class="actions" style="margin-top:14px"><button class="secondary" onclick="copyReport()">${T('copyReport')}</button><button class="primary" onclick="$('#modal').classList.remove('show');go('reports')">${T('fileReport')}</button></div>`);
+};
+function showModal(html){$('#modalContent').innerHTML=html;$('#modal').classList.add('show')}
+$('#closeModal').onclick=()=>$('#modal').classList.remove('show');
+$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('show')};
+$('#alertDetails').onclick=()=>showModal(`<div class="eyebrow">${T('securityAlert')}</div><h2>${T('alertTitle')}</h2><p class="sub">${T('alertModalText')}</p>`);
+$('#scanHelp').onclick=()=>showModal(`<div class="eyebrow">${T('howScanWorks')}</div><h2>${T('multiSignalAnalysis')}</h2><p class="sub">${T('scanHelpText')}</p>`);
+
+/* ---------- activity + report shortcuts on home ---------- */
+$('#activityReportBtn').onclick=()=>{if(lastResult){$('#detailsBtn').click()}else{go('scan')}};
+$('#homeReportBtn').onclick=()=>{const item=$('#reportHistory .report-item');if(item)item.click();else go('reports')};
+
+/* ---------- AI chat ---------- */
+const messages=$('#messages');
+function addMsg(html,who,rich){const d=document.createElement('div');d.className='bubble '+who+(rich?' rich':'');if(rich){d.innerHTML=html}else{d.textContent=html}messages.appendChild(d);messages.scrollTop=messages.scrollHeight;return d}
+function aiCard(level,text,rec,buttons){
+  const chip=level==='danger'?`<span class="r-chip danger">⛔ ${T('highRisk')}</span>`:level==='warn'?`<span class="r-chip warn">⚠ ${T('cautionLevel')}</span>`:level==='safe'?`<span class="r-chip safe">✅ ${T('safeLevel')}</span>`:'';
+  const recHtml=rec?`<div class="r-rec"><b>${T('recommendation')}:</b> ${rec}</div>`:'';
+  const btnHtml=buttons&&buttons.length?`<div class="r-actions">${buttons.map(b=>`<button onclick="${b.action}">${b.label}</button>`).join('')}</div>`:'';
+  return `${chip}<p>${text}</p>${recHtml}${btnHtml}`;
+}
+function goScanWith(m,val){go('scan');setMode(m);if(val){$('#scanInput').value=val}}
+function goHelp(){$('#modal').classList.remove('show');go('account');setTimeout(()=>$('#helpRow').click(),150)}
+window.goScanWith=goScanWith;window.goHelp=goHelp;window.go=go;window.copyReport=copyReport;window.cancelOp=cancelOp;
+
+const SUGGESTIONS=['whatIsDeraa','howToReport','isInfoShared','whatIfScammed','isThisLinkSafe','shouldITransfer','howToKnowQrFake','sharedOtp','isMsgFromBank','whyReportRejected','howRiskCalculated','linkedToAlinma','linkedToOtherBanks','nationalFraudStats'];
+function renderSuggestions(){
+  $('#suggestionsRow').innerHTML=SUGGESTIONS.map(k=>`<button data-k="${k}">${T(k)}</button>`).join('');
+  $$('#suggestionsRow button').forEach(b=>b.onclick=()=>{addMsg(b.textContent,'me');aiReply(b.dataset.k,b.textContent)});
+}
+function aiReply(key,rawText){
+  const typing=document.createElement('div');typing.className='bubble ai typing';typing.innerHTML='<i></i><i></i><i></i>';messages.appendChild(typing);messages.scrollTop=messages.scrollHeight;
+  setTimeout(()=>{
+    typing.remove();
+    const q=(rawText||'').trim();
+    const lower=q.toLowerCase();
+
+    // link detection
+    if(/https?:\/\//i.test(q)){
+      addMsg(aiCard('warn',T('aiLinkFound'),T('aiLinkRec'),[{label:T('openInScan'),action:`goScanWith('link','${q.replace(/'/g,"\\'")}')`}]),'ai',true);return;
+    }
+    // IBAN detection
+    if(/\bSA\d{20,22}\b/i.test(q.replace(/\s/g,''))){
+      addMsg(aiCard('warn',T('aiIbanFound'),T('aiIbanRec'),[{label:T('openInScan'),action:`goScanWith('iban','${q.replace(/'/g,"\\'")}')`}]),'ai',true);return;
+    }
+    // suspicious message indicators
+    const urgency=/فورا|فوراً|الان|الآن|عاجل|خلال ساعة|حالا|حالًا/.test(q);
+    const sensitive=/رمز التحقق|otp|بيانات البطاقة|كلمة المرور|cvv/i.test(q);
+    const impersonation=/البنك|بنكك|مصرف|stc pay|شحن/i.test(q) && /رابط|رسالة/.test(q);
+    if((urgency||sensitive)&&q.length>6&&!key){
+      const marks=[];if(urgency)marks.push(T('markUrgency'));if(sensitive)marks.push(T('markSensitive'));if(impersonation)marks.push(T('markImpersonation'));marks.push(T('markLink'));marks.push(T('markOtp'));
+      addMsg(aiCard('danger',T('aiMsgIndicators')+': '+marks.slice(0,3).join('، '),T('aiMsgRec'),[{label:T('fileReport'),action:"go('reports')"}]),'ai',true);return;
+    }
+
+    if(key){
+      const map={
+        whatIsDeraa:()=>addMsg(T('replyWhatIsDeraa'),'ai'),
+        howToReport:()=>addMsg(aiCard('',T('replyHowToReport'),null,[{label:T('fileReport'),action:"go('reports')"}]),'ai',true),
+        isInfoShared:()=>addMsg(T('replyIsInfoShared'),'ai'),
+        whatIfScammed:()=>addMsg(aiCard('danger',T('replyWhatIfScammed'),T('recBad'),[{label:T('fileReport'),action:"go('reports')"},{label:T('openHelp'),action:"goHelp()"}]),'ai',true),
+        isThisLinkSafe:()=>addMsg(aiCard('',T('replyIsThisLinkSafe'),null,[{label:T('startFullScan'),action:"go('scan')"}]),'ai',true),
+        shouldITransfer:()=>addMsg(aiCard('warn',T('replyShouldITransfer'),T('recCheckIban'),[{label:T('startFullScan'),action:"goScanWith('iban','')"}]),'ai',true),
+        howToKnowQrFake:()=>addMsg(aiCard('',T('replyHowToKnowQrFake'),null,[{label:T('startFullScan'),action:"goScanWith('qr','')"}]),'ai',true),
+        sharedOtp:()=>addMsg(aiCard('danger',T('replySharedOtp'),T('recBad'),[{label:T('openHelp'),action:"goHelp()"}]),'ai',true),
+        isMsgFromBank:()=>addMsg(T('replyIsMsgFromBank'),'ai'),
+        whyReportRejected:()=>addMsg(T('replyWhyReportRejected'),'ai'),
+        howRiskCalculated:()=>addMsg(T('replyHowRiskCalculated'),'ai'),
+        linkedToAlinma:()=>addMsg(T('replyLinkedToAlinma'),'ai'),
+        linkedToOtherBanks:()=>addMsg(aiCard('',T('replyLinkedToOtherBanks'),null,[{label:T('futureVision'),action:"$('#modal').classList.remove('show');go('account');setTimeout(()=>$('#visionRow').click(),150)"}]),'ai',true),
+        nationalFraudStats:()=>addMsg(T('replyNationalFraudStats'),'ai')
+      };
+      if(map[key]){map[key]();return}
+    }
+    addMsg(T('replyFallback'),'ai');
+  },700);
+}
+function send(){const q=$('#chatInput').value.trim();if(!q)return;addMsg(q,'me');$('#chatInput').value='';aiReply(null,q)}
+$('#sendBtn').onclick=send;$('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+
+/* ---------- reports (with status timeline) ---------- */
+let reportSeq=2;
+/* stored as translation KEYS (not resolved strings) so the whole list re-renders correctly on language switch */
+let reportsData=[
+  {id:1,typeKey:'typeLink',subject:'رابط تحويل مشبوه',status:'accepted',dateKey:'processedToday',reasonKey:'acceptReason1',indicatorKeys:['ind1','ind2'],addedDb:true,processedAtKey:'todayTime'},
+  {id:2,typeKey:'typePhone',subject:'رقم هاتف غير موثق',status:'rejected',dateKey:'reviewedYesterday',reasonKey:'rejectReason1',processedAtKey:'yesterdayTime'}
+];
+function renderReportHistory(){
+  $('#reportHistory').innerHTML=reportsData.map(r=>{
+    const pill=r.status==='accepted'?`<span class="verified-badge">${T('accepted')}</span>`:r.status==='rejected'?`<span class="status-pill" style="color:var(--danger)">${T('rejected')}</span>`:`<span class="status-pill">${T('analyzing')}</span>`;
+    return `<div class="report-item" data-id="${r.id}"><div><b style="font-size:12.5px">${r.subject}</b><div class="muted">${T(r.dateKey)}</div></div>${pill}</div>`;
+  }).join('');
+  $$('#reportHistory .report-item').forEach(el=>el.onclick=()=>openReportDetail(+el.dataset.id));
+  updateHomeReportCard();
+}
+function updateHomeReportCard(){
+  const r=reportsData[0];if(!r)return;
+  if(r.status==='accepted'){$('#homeReportTitle').textContent=T('lastReportAcceptedTitle');$('#homeReportText').textContent=T('lastReportAcceptedText');$('#homeReportBtn').textContent=T('viewDetails2')}
+  else if(r.status==='rejected'){$('#homeReportTitle').textContent=T('lastReportRejectedTitle');$('#homeReportText').textContent=T('lastReportRejectedText');$('#homeReportBtn').textContent=T('knowWhy')}
+  else{$('#homeReportTitle').textContent=T('lastReportAnalyzingTitle');$('#homeReportText').textContent=T('lastReportAnalyzingText');$('#homeReportBtn').textContent=T('viewDetails2')}
+}
+function timelineHtml(r){
+  const stages=[{label:T('tlReceived')},{label:T('tlAnalyzing')},{label:T('tlReviewed')},{label:r.status==='rejected'?T('tlRejected'):T('tlAccepted')}];
+  let activeIdx = r.status==='analyzing'?1:3;
+  return `<div class="timeline">${stages.map((s,i)=>{
+    let cls='';if(i<activeIdx)cls='done';else if(i===activeIdx)cls=r.status==='rejected'?'rejected':(r.status==='analyzing'?'active':'done');
+    const icon=cls==='done'?'✓':cls==='rejected'?'✕':(i+1);
+    return `<div class="t-item ${cls}"><div class="t-dot">${icon}</div><div class="t-copy"><h5>${s.label}</h5></div></div>`;
+  }).join('')}</div>`;
+}
+function openReportDetail(id){
+  const r=reportsData.find(x=>x.id===id);if(!r)return;
+  let body='';
+  if(r.status==='accepted'){
+    body=`<div class="rec-line" style="margin-top:0"><span>✅</span><span>${T(r.reasonKey)}</span></div>
+    <div class="section-title" style="margin-top:16px"><h3>${T('confirmedIndicators')}</h3></div>
+    <div class="step-list safe-list">${(r.indicatorKeys||[]).map(k=>`<div><i>✓</i><span>${T(k)}</span></div>`).join('')}</div>
+    <div class="info-grid"><div class="info-cell"><span>${T('addedToRiskDb')}</span><b>${r.addedDb?T('yes'):T('no')}</b></div><div class="info-cell"><span>${T('processedDate')}</span><b>${T(r.processedAtKey)}</b></div></div>`;
+  }else if(r.status==='rejected'){
+    body=`<div class="rec-line" style="margin-top:0"><span>ℹ️</span><span>${T(r.reasonKey)}</span></div>
+    <div class="known-safe" style="color:var(--text);background:var(--surface-2);border-color:var(--line);margin-top:12px">${T('rejectionNoImpact')}</div>
+    <div class="info-grid"><div class="info-cell"><span>${T('processedDate')}</span><b>${T(r.processedAtKey)}</b></div></div>`;
+  }else{
+    body=`<div class="rec-line" style="margin-top:0"><span>⏳</span><span>${T('analyzingWhatText')}</span></div>
+    <div class="info-grid"><div class="info-cell"><span>${T('estDemoTime')}</span><b>~3 ${T('seconds')}</b></div></div>`;
+  }
+  showModal(`<div class="eyebrow">${T('reportResult')}</div><h2>${r.subject}</h2>${timelineHtml(r)}${body}`);
+}
+
+$$('.type').forEach(b=>b.onclick=()=>{$$('.type').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');$('#reportSubject').value='';$('#reportText').value=''});
+$('#reportImage').onchange=e=>{$('#reportFileName').textContent=e.target.files[0]?`${T('chosen')}: ${e.target.files[0].name}`:T('noImageChosen')};
+function reportStep(n){$$('.report-view').forEach((v,i)=>v.classList.toggle('active',i===n-1));$$('.report-steps span').forEach((s,i)=>s.classList.toggle('on',i<n))}
+$('#reportNext1').onclick=()=>reportStep(2);
+$('#reportBack').onclick=()=>reportStep(1);
+$('#reportNext2').onclick=()=>{
+  const subject=$('#reportSubject').value.trim(),text=$('#reportText').value.trim();
+  if(!subject||!text){toast(T('completeReportData'));return}
+  const type=$('.type.selected').textContent;const file=$('#reportImage').files[0];
+  $('#reportSummary').innerHTML=`${T('reportTypeLabel')}: <b>${type}</b><br>${T('entityLabel')}: <b>${subject}</b><br>${T('imageLabel')}: <b>${file?file.name:T('none')}</b><br>${T('willAutoAnalyze')}`;
+  reportStep(3);
+};
+$('#submitReport').onclick=()=>{
+  const type=$('.type.selected').textContent,subject=$('#reportSubject').value.trim();
+  reportSeq++;
+  const rec={id:reportSeq,typeLabel:type,subject,status:'analyzing',dateKey:'addedNow',reasonKey:'',processedAtKey:''};
+  reportsData.unshift(rec);renderReportHistory();
+  toast(T('reportSubmitted'));
+  $('#reportSubject').value='';$('#reportText').value='';$('#reportImage').value='';$('#reportFileName').textContent=T('noImageChosen');
+  reportStep(1);
+  setTimeout(()=>{
+    const rejected=/safe|amazon\.sa|jarir|920000000/i.test(subject);
+    rec.status=rejected?'rejected':'accepted';
+    rec.dateKey='processedToday';rec.processedAtKey='justNow';
+    if(rejected){rec.reasonKey='rejectReasonGeneric'}
+    else{rec.reasonKey='acceptReasonGeneric';rec.indicatorKeys=['ind1','ind3'];rec.addedDb=true}
+    renderReportHistory();
+  },3500);
+};
+$('#newReport').onclick=()=>reportStep(1);
+
+/* ---------- theme ---------- */
+function toggleTheme(){document.documentElement.classList.toggle('light');const dark=!document.documentElement.classList.contains('light');$('#themeSwitch').classList.toggle('on',dark);localStorage.setItem('deraaTheme',dark?'dark':'light')}
+$('#themeSwitch').onclick=toggleTheme;$('#themeTop').onclick=toggleTheme;
+$$('.switch').forEach(s=>{if(s.id!=='themeSwitch')s.onclick=()=>s.classList.toggle('on')});
+if(localStorage.getItem('deraaTheme')==='light'){document.documentElement.classList.add('light');$('#themeSwitch').classList.remove('on')}
+
+/* ---------- devices ---------- */
+let devices=[
+  {name:'iPhone 15 Pro',os:'iOS 18 — Safari',loc:'الرياض، السعودية',last:'نشط الآن',current:true},
+  {name:'Windows PC',os:'Windows 11 — Chrome',loc:'جدة، السعودية',last:'قبل ساعتين',current:false}
+];
+function openDevices(){
+  showModal(`<div class="eyebrow">${T('registeredDevices')}</div><h2>${T('manageSessions')}</h2><p class="sub">${T('devicesSub')}</p>
+  <div id="deviceList">${devices.map((d,i)=>`<div class="device"><div><h4>${d.name}${d.current?' — '+T('thisDevice'):''}</h4><p>${d.os}</p><p>${d.loc} • ${d.last}</p></div>${d.current?`<span class="verified-badge">${T('active')}</span>`:`<button class="danger-mini" onclick="removeDevice(${i})">${T('logout')}</button>`}</div>`).join('')}</div>
+  <button id="logoutAllBtn" class="secondary" style="width:100%;margin-top:14px;color:var(--danger)">${T('logoutAllOthers')}</button>`);
+  $('#logoutAllBtn').onclick=confirmLogoutAll;
+}
+function confirmLogoutAll(){
+  showModal(`<div class="eyebrow">${T('confirmAction')}</div><h2>${T('logoutAllOthers')}</h2><p class="sub">${T('logoutAllConfirmText')}</p>
+  <div class="actions"><button class="secondary" onclick="openDevices()">${T('cancel')}</button><button class="primary" onclick="doLogoutAll()">${T('confirm')}</button></div>`);
+}
+function doLogoutAll(){devices=devices.filter(d=>d.current);$('#deviceCount').textContent=devices.length+' ‹';toast(T('loggedOutAllOthers'));openDevices()}
+window.removeDevice=i=>{devices.splice(i,1);$('#deviceCount').textContent=devices.length+' ‹';openDevices();toast(T('deviceLoggedOut'))};
+window.openDevices=openDevices;window.confirmLogoutAll=confirmLogoutAll;window.doLogoutAll=doLogoutAll;
+$('#devicesRow').onclick=openDevices;
+
+/* ---------- language / i18n ---------- */
+let appLang=localStorage.getItem('deraaLang')||'ar';
+const translations={
+ ar:{
+  tagline:'حماية ذكية تبدأ قبل الدفع',secureLogin:'دخول آمن',welcomeBack:'مرحبًا بعودتك',loginSub:'سجلي برقم الجوال المرتبط بالخدمة للوصول إلى أدوات الحماية والتحقق.',phoneLabel:'رقم الجوال',sendOtp:'إرسال رمز التحقق',bioLogin:'الدخول بالبصمة',runDemo:'تشغيل العرض التجريبي',
+  todayStatus:'حالتك الأمنية اليوم',excellentProtection:'حماية ممتازة',heroDesc:'لم يتم رصد تهديدات خطيرة. ابدئي فحصًا واحدًا من زر الفحص العائم بالأسفل.',securityScore:'درجة الأمان',
+  lastActivity:'آخر نشاط أمني',viewReport:'عرض التقرير',statScans:'فحصًا هذا الأسبوع',statRisks:'مخاطر تم اكتشافها',statReports:'بلاغات تمت معالجتها',
+  securityAlert:'تنبيه أمني',details:'التفاصيل',alertTitle:'حملة روابط شحن مزيفة',alertText:'تأكدي من عنوان الموقع قبل إدخال بيانات البطاقة أو رمز التحقق.',alertModalText:'تنتحل بعض الرسائل أسماء شركات الشحن وتطلب دفع رسوم بسيطة عبر رابط مزيف. لا تدخلي بيانات البطاقة أو رمز التحقق قبل التأكد من النطاق.',
+  lastReportResult:'آخر نتيجة بلاغ',viewReports:'عرض البلاغات',viewDetails2:'عرض التفاصيل',knowWhy:'معرفة السبب',
+  protectionCenter:'مركز الحماية',chooseScanType:'اختر نوع الفحص',scanQrTitle:'فحص QR',scanQrDesc:'تحليل وجهة الدفع وبيانات التاجر.',scanLinkTitle:'فحص رابط',scanLinkDesc:'اكتشاف الروابط المقلدة والتصيد.',scanSiteTitle:'موقع أو متجر',scanSiteDesc:'التحقق من سمعة النطاق والمتجر.',scanIbanTitle:'حساب بنكي',scanIbanDesc:'مطابقة المستفيد وسجل البلاغات.',
+  qrDemoHint:'عرض تجريبي لمحاكاة الكاميرا',qrSafeBtn:'مسح رمز آمن (تاجر موثّق)',qrDangerBtn:'مسح رمز مشبوه',
+  enterLink:'أدخل الرابط المراد تحليله',enterSiteLink:'أدخل رابط الموقع أو المتجر',enterIban:'أدخل رقم IBAN أو الحساب',trySafeExample:'تجربة مثال آمن',tryDangerExample:'تجربة مثال خطر',analyzeNow:'تحليل الآن',starting:'جارٍ بدء التحليل...',analysisResult:'نتيجة التحليل',viewFullReport:'عرض التقرير الكامل',fileReport:'رفع بلاغ',
+  step1:'فحص بنية الرابط',step2:'التحقق من عمر الدومين',step3:'مطابقة قواعد بيانات التهديدات',step4:'تحليل التشابه مع المواقع الرسمية',step5:'احتساب درجة الخطورة',
+  qrStep1:'قراءة رمز QR',qrStep2:'تحديد وجهة الدفع',qrStep3:'مطابقة اسم التاجر',qrStep4:'احتساب درجة الأمان',
+  highRisk:'عالي الخطورة',trustedEntity:'جهة موثوقة',safeInitial:'آمن مبدئيًا',safeResult:'نتيجة آمنة',securityWarning:'تحذير أمني',
+  recommendation:'التوصية',recBad:'لا تُكملي عملية الدفع ولا تشاركي رمز التحقق مع أي جهة.',recSafe:'يمكن المتابعة، مع التأكد دائمًا من تطابق اسم التاجر.',
+  whatNow:'ماذا تفعل الآن؟',ns1:'لا تكمل عملية الدفع',ns2:'لا تشارك رمز التحقق',ns3:'تواصل مع البنك من القنوات الرسمية',ns4:'ارفع بلاغًا عن الجهة',
+  safe1:'يمكن المتابعة',safe2:'تأكد من تطابق اسم التاجر',safe3:'لا تشارك رمز التحقق مع أي شخص',
+  copyReport:'نسخ التقرير',cancelOperation:'إلغاء العملية',copied:'تم نسخ التقرير',opCancelled:'تم إلغاء العملية',noReportYet:'لا توجد نتيجة بعد',
+  fullRiskReport:'تقرير المخاطر الذكي',riskScore:'درجة الخطورة',domainAge:'عمر الدومين',httpsStatus:'حالة HTTPS',domainReputation:'سمعة النطاق',reportCount:'عدد البلاغات',lastReportDate:'آخر تاريخ بلاغ',officialSimilarity:'نسبة التشابه مع جهة رسمية',suspiciousRedirect:'وجود Redirect مشبوه',merchantBeneficiary:'اسم التاجر أو المستفيد',entityDataMatch:'تطابق بيانات الجهة',lastUpdateTime:'وقت آخر تحديث',commercialReg:'السجل التجاري',ecommerceDoc:'وثيقة التجارة الإلكترونية',knownBadge:'جهة معروفة وموثوقة — النطاق الرسمي متطابق',
+  merchantName:'اسم التاجر',entityType:'نوع الجهة',paymentDest:'وجهة الدفع',extractedAccount:'الحساب / الرابط المستخرج',nameMatch:'مطابقة اسم التاجر',decisionReason:'سبب القرار',scanResult:'نتيجة فحص رمز QR',
+  qrGoodMerchant:'مكتبة جرير — فرع العليا',qrGoodType:'نقطة بيع رسمية (POS)',qrGoodDest:'حساب تجاري موثّق',qrGoodReason:'تاجر موثّق، لا توجد بلاغات، والبيانات متطابقة بالكامل.',
+  qrBadMerchant:'غير معروف',qrBadType:'حساب شخصي',qrBadDest:'محفظة فردية غير موثقة',qrBadReason:'الرمز يوجّه لحساب شخصي واسم المستفيد لا يطابق المتجر، مع مؤشرات استبدال للرمز الأصلي.',
+  yes:'نعم',no:'لا',notApplicable:'غير مطلوب',
+  aiSubtitle:'مساعدك الأمني',aiTitle:'درء AI',aiGreeting:'مرحبًا، أنا درء AI. اسأليني عن رابط، رسالة، QR، حساب بنكي، أو أي موقف أمني.',chatPlaceholder:'اكتبي سؤالك هنا...',
+  whatIsDeraa:'ما هو تطبيق درء؟',howToReport:'كيف أرفع بلاغًا؟',isInfoShared:'هل يتم نشر معلوماتي الشخصية؟',whatIfScammed:'ماذا أفعل إذا تعرضت للاحتيال؟',isThisLinkSafe:'هل هذا الرابط آمن؟',shouldITransfer:'هل أحول لهذا الحساب؟',howToKnowQrFake:'كيف أعرف أن QR مزيف؟',sharedOtp:'ماذا أفعل إذا شاركت رمز التحقق؟',isMsgFromBank:'كيف أعرف أن الرسالة من البنك فعلًا؟',whyReportRejected:'لماذا تم رفض بلاغي؟',howRiskCalculated:'كيف يتم تحديد درجة الخطورة؟',linkedToAlinma:'هل درء مرتبط بمصرف الإنماء؟',linkedToOtherBanks:'هل سيتم ربط درء ببقية البنوك؟',nationalFraudStats:'هل توجد إحصاءات رسمية للاحتيال في السعودية؟',
+  replyWhatIsDeraa:'درء تطبيق أمني مالي يحمي المستخدم قبل الدفع، عبر فحص الروابط والمواقع والمتاجر والحسابات البنكية ورموز QR، ثم يشرح درجة الخطر والتوصية المناسبة.',
+  replyHowToReport:'افتحي تبويب البلاغات، اختاري نوع البلاغ، أضيفي التفاصيل وصورة إن وجدت، ثم أرسليه. سيمر البلاغ بمراحل استلام وتحليل ومراجعة قبل القبول أو الرفض.',
+  replyIsInfoShared:'لا تُنشر بياناتك الشخصية ضمن البلاغ. يُستخدم فقط مؤشر التهديد بعد التحقق، ولا يظهر رقمك أو بريدك أو بياناتك البنكية لأي مستخدم آخر.',
+  replyWhatIfScammed:'أوقفي البطاقة أو التحويل فورًا من القنوات الرسمية، تواصلي مع البنك، احتفظي بالأدلة، ثم ارفعي بلاغًا داخل درء لمراجعة الجهة المشبوهة.',
+  replyIsThisLinkSafe:'أرسلي الرابط في مركز الفحص لأحلل عمر النطاق وHTTPS والتشابه مع الجهات الرسمية وسجل البلاغات، ثم أعرض لك النتيجة والتوصية.',
+  replyShouldITransfer:'قبل التحويل قارني اسم المستفيد بالجهة المعروفة، وتحققي من سجل البلاغات وعمر العلاقة مع الحساب. لا تكملي إذا ظهر اختلاف أو استعجال غير طبيعي.',
+  replyHowToKnowQrFake:'علامات QR المشبوه: ملصق فوق رمز أصلي، اختلاف اسم التاجر عن المتوقع، وجهة دفع شخصية بدل تجارية، أو رابط لا ينتمي للنطاق الرسمي.',
+  replySharedOtp:'أوقفي العملية فورًا وتواصلي مع البنك من القنوات الرسمية لتجميد أي تحويل، ثم غيّري بيانات الدخول وارفعي بلاغًا داخل درء.',
+  replyIsMsgFromBank:'الرسائل الرسمية لا تطلب رمز التحقق أو كلمة المرور مطلقًا، ولا تستعجلك لاتخاذ قرار، وتأتي من نطاق أو رقم معتمد. عند الشك، تواصلي مع البنك مباشرة.',
+  replyWhyReportRejected:'يُرفض البلاغ غالبًا لعدم توفر أدلة كافية لإثبات الاحتيال أو لأن الجهة معروفة وموثوقة. الرفض لا يؤثر على حسابك بأي شكل.',
+  replyHowRiskCalculated:'تُحتسب درجة الخطورة من عمر النطاق، حالة HTTPS، التشابه مع الجهات الرسمية، وجود Redirect مشبوه، وسجل البلاغات المرتبطة بالجهة.',
+  replyLinkedToAlinma:'في هذه المرحلة التجريبية، درء مصمم لحماية عملاء مصرف الإنماء كخطوة أولى ضمن خارطة الطريق، والتكامل الفعلي مع الأنظمة البنكية خطوة قادمة وليست مفعّلة حاليًا.',
+  replyLinkedToOtherBanks:'نعم، هذا جزء من الرؤية المستقبلية: التوسع لبقية البنوك السعودية عبر APIs آمنة لتبادل مؤشرات الاحتيال دون مشاركة بيانات العملاء.',
+  replyNationalFraudStats:'النسخة التجريبية لا تتصل حاليًا بعدّاد وطني لحظي، لذلك لن أعطيك رقمًا غير موثق. مستقبلًا يمكن عرض إحصاءات رسمية بعد التكامل مع الجهات المختصة.',
+  replyFallback:'أنا مساعدك الأمني في درء. اكتبي رابطًا أو رقم حساب أو تفاصيل رسالة مشبوهة وسأشرح لك مؤشرات الخطر والخطوة الأنسب.',
+  aiLinkFound:'لاحظت رابطًا في رسالتك. إليك تقييم أولي سريع — لتحليل كامل استخدمي مركز الفحص.',aiLinkRec:'لا تفتحي الرابط أو تدخلي بياناتك قبل التحقق الكامل.',openInScan:'فتح في الفحص',
+  aiIbanFound:'لاحظت رقم حساب بنكي (IBAN). إليك تقييم أولي — يُفضّل إجراء تحقق كامل قبل أي تحويل.',aiIbanRec:'قارني اسم المستفيد وتحققي من سجل البلاغات قبل التحويل.',
+  markUrgency:'الاستعجال',markSensitive:'طلب بيانات حساسة',markImpersonation:'انتحال جهة رسمية',markLink:'وجود رابط غير موثوق',markOtp:'طلب رمز تحقق',
+  aiMsgIndicators:'رصدت في رسالتك مؤشرات احتيال محتملة',aiMsgRec:'لا تردي على الرسالة ولا تضغطي أي رابط بها. تحققي من الجهة عبر قنواتها الرسمية.',
+  cautionLevel:'تنبيه',safeLevel:'آمن',startFullScan:'بدء فحص كامل',openHelp:'فتح مركز المساعدة',recCheckIban:'تحققي من الحساب في مركز الفحص قبل أي تحويل.',
+  communityContribution:'مساهمة مجتمعية',reportsTitle:'البلاغات',step1of3:'الخطوة 1 من 3',chooseReportType:'اختر نوع البلاغ',typeLink:'رابط',typeIban:'حساب بنكي',typeStore:'متجر',typeMsg:'رسالة',typePhone:'رقم هاتف',next:'التالي',
+  step2of3:'الخطوة 2 من 3',entityData:'بيانات الجهة',reportDetails:'تفاصيل البلاغ',attachImage:'إرفاق صورة أو لقطة شاشة',noImageChosen:'لم يتم اختيار صورة',back:'رجوع',review:'مراجعة',
+  step3of3:'الخطوة 3 من 3',reviewReport:'مراجعة البلاغ',submitForAnalysis:'إرسال البلاغ للتحليل',yourPastReports:'بلاغاتك السابقة',
+  reportTypeLabel:'نوع البلاغ',entityLabel:'الجهة',imageLabel:'الصورة',none:'لا توجد',willAutoAnalyze:'سيتم تحليل البلاغ آليًا قبل اعتماده.',completeReportData:'أكملي بيانات البلاغ',addedNow:'أضيف الآن',reportSubmitted:'تم إرسال البلاغ للتحليل',chosen:'تم اختيار',
+  processedToday:'تمت معالجته اليوم',reviewedYesterday:'تمت مراجعته أمس',acceptReason1:'تم التحقق من الرابط وثبت أنه يحاكي صفحة دفع رسمية. تم اعتماد البلاغ وإضافة المؤشر إلى قاعدة المخاطر التجريبية.',rejectReason1:'لم تتوفر أدلة كافية لإثبات أن الجهة احتيالية، لذلك تم رفض البلاغ دون التأثير على تقييم الجهة.',ind1:'تشابه مرتفع مع نطاق رسمي',ind2:'نمط إعادة توجيه غير معتاد',ind3:'النطاق أُنشئ حديثًا',todayTime:'اليوم 10:42 ص',yesterdayTime:'أمس 4:15 م',
+  accepted:'تم القبول',rejected:'تم الرفض',analyzing:'قيد التحليل',
+  reportResult:'نتيجة البلاغ',tlReceived:'تم استلام البلاغ',tlAnalyzing:'جارٍ تحليل البيانات',tlReviewed:'تمت المراجعة',tlAccepted:'تم القبول',tlRejected:'تم الرفض',
+  confirmedIndicators:'المؤشرات التي تم تأكيدها',addedToRiskDb:'أُضيفت الجهة إلى قاعدة المخاطر',processedDate:'تاريخ المعالجة',rejectionNoImpact:'رفض البلاغ لا يؤثر على حسابك أو تقييمك كمستخدم.',analyzingWhatText:'نتحقق الآن من سجل النطاق ومطابقة البيانات مع قاعدة المخاطر التجريبية.',estDemoTime:'الوقت المتوقع (تجريبي)',seconds:'ثوانٍ',
+  acceptReasonGeneric:'تم التحقق من الجهة وتأكيد وجود مؤشرات احتيال حقيقية. تمت إضافتها إلى قاعدة المخاطر التجريبية.',rejectReasonGeneric:'لا توجد أدلة كافية على الاحتيال، أو الجهة معروفة وموثوقة. لم يتم تعديل تقييمها.',
+  lastReportAcceptedTitle:'تم قبول بلاغك الأخير',lastReportAcceptedText:'تم التحقق من الرابط وإضافته إلى قاعدة المخاطر.',lastReportRejectedTitle:'تم رفض بلاغك الأخير',lastReportRejectedText:'لم تتوفر مؤشرات كافية لإثبات الاحتيال.',lastReportAnalyzingTitle:'بلاغك قيد التحليل',lastReportAnalyzingText:'جارٍ التحقق من بيانات الجهة.',
+  userAccount:'حساب المستخدم',phoneLabel2:'رقم الجوال',emailLabel:'البريد الإلكتروني',genderLabel:'الجنس',editMyInfo:'تعديل معلوماتي',
+  accScoreLabel:'أمان الحساب',accScansLabel:'فحوصات',accReportsLabel:'بلاغات',accRisksLabel:'مخاطر',
+  darkMode:'الوضع الداكن',securityNotifs:'الإشعارات الأمنية',bioLoginSetting:'تسجيل الدخول بالبصمة',registeredDevices:'الأجهزة المسجلة',language:'اللغة',privacySecurity:'الخصوصية والأمان',helpCenter:'مركز المساعدة',futureVision:'الرؤية المستقبلية',logout:'تسجيل الخروج',loggedOut:'تم تسجيل الخروج',
+  navHome:'الرئيسية',navReports:'البلاغات',navScan:'الفحص',navAi:'درء AI',navAccount:'حسابي',
+  changeAvatar:'الاسم',nameLabel:'الاسم',genderFemale:'أنثى',genderMale:'ذكر',saveChanges:'حفظ التعديلات',changePhoto:'تغيير الصورة',avatarChanged:'تم تحديث الصورة الرمزية',savedInfo:'تم حفظ معلوماتك',
+  manageSessions:'إدارة جلسات الدخول',devicesSub:'يمكنك تسجيل الخروج من أي جهاز غير معروف فورًا.',thisDevice:'هذا الجهاز',active:'نشط',logoutAllOthers:'تسجيل الخروج من جميع الأجهزة الأخرى',confirmAction:'تأكيد الإجراء',logoutAllConfirmText:'سيتم تسجيل خروجك من جميع الأجهزة عدا هذا الجهاز. هل تريدين المتابعة؟',cancel:'إلغاء',confirm:'تأكيد',loggedOutAllOthers:'تم تسجيل الخروج من جميع الأجهزة الأخرى',deviceLoggedOut:'تم تسجيل الخروج من الجهاز',
+  chooseAppLang:'اختاري لغة التطبيق',langChangedAr:'تم تغيير اللغة إلى العربية',langChangedEn:'Language changed to English',
+  privacyTitle:'كيف نحمي بياناتك؟',privacyQ1:'ما البيانات التي يجمعها درء؟',privacyA1:'رقم الجوال، بريدك الإلكتروني، وبيانات الفحوصات والبلاغات التي تنشئينها داخل التطبيق فقط.',privacyQ2:'ما البيانات التي لا يتم تخزينها؟',privacyA2:'لا يتم تخزين بيانات البطاقة البنكية، ولا رمز التحقق OTP في أي وقت.',privacyQ3:'كيف تتم حماية البلاغات؟',privacyA3:'تمر كل البلاغات بمراجعة آلية قبل اعتمادها، ولا تُنشر بيانات مقدّم البلاغ لأي مستخدم آخر.',privacyQ4:'هل يتم نشر بيانات المستخدم؟',privacyA4:'لا، بياناتك الشخصية لا تظهر لبقية المستخدمين أو الجهات الخارجية بأي شكل.',privacyQ5:'كيف يتم استخدام بيانات التهديدات؟',privacyA5:'تُستخدم فقط كمؤشرات مجهولة (رابط أو رقم مشبوه) لتحسين دقة الفحص لجميع المستخدمين.',privacyQ6:'سياسة الاحتفاظ بالبيانات',privacyA6:'تُحفظ بيانات الحساب طوال فترة الاستخدام، ويمكن طلب حذفها في أي وقت.',privacyQ7:'تشفير البيانات',privacyA7:'تُنقل جميع البيانات عبر اتصال مشفّر أثناء النقل، وتُخزن بشكل مشفّر في الخادم.',privacyQ8:'إدارة الموافقات',privacyA8:'يمكنك مراجعة موافقاتك وتعديل تفضيلات الإشعارات من إعدادات الحساب في أي وقت.',privacyQ9:'حذف الحساب',privacyA9:'يمكنك طلب حذف حسابك أو بياناتك بالكامل من مركز المساعدة، وسيتم التنفيذ خلال مدة محددة.',
+  privacyConfirm:'بيانات بطاقتك لا تُخزَّن أبدًا، ورمز التحقق OTP لا يُحفظ في أي وقت، ولا تظهر بياناتك الشخصية لبقية المستخدمين. أي مشاركة مستقبلية للبيانات بين البنوك ستقتصر على مؤشرات التهديد المجهولة، دون بيانات العملاء.',
+  helpTitle:'كيف نقدر نساعدك؟',helpQ1:'كيف أفحص رابطًا؟',helpA1:'افتحي مركز الفحص، اختاري رابط، الصقيه ثم اضغطي تحليل الآن.',helpQ2:'كيف أفحص QR؟',helpA2:'من مركز الفحص اختاري فحص QR ثم اضغطي أحد مثالي المسح التجريبي.',helpQ3:'كيف أتحقق من حساب بنكي؟',helpA3:'اختاري حساب بنكي من مركز الفحص وأدخلي رقم الآيبان لعرض تقييم أولي.',helpQ4:'كيف أرفع بلاغًا؟',helpA4:'من تبويب البلاغات اختاري النوع، أضيفي التفاصيل، ثم أرسلي البلاغ للتحليل.',helpQ5:'لماذا تم رفض بلاغي؟',helpA5:'غالبًا لعدم كفاية الأدلة أو لأن الجهة معروفة وموثوقة. الرفض لا يؤثر على حسابك.',helpQ6:'ماذا أفعل عند التعرض للاحتيال؟',helpA6:'أوقفي العملية فورًا، تواصلي مع البنك من القنوات الرسمية، ثم ارفعي بلاغًا.',helpQ7:'هل نتيجة الفحص ضمان نهائي؟',helpA7:'لا، هي تقييم مبني على مؤشرات متاحة، ويُفضّل دائمًا التحقق المباشر مع الجهة عند الشك.',helpQ8:'كيف أتواصل مع البنك؟',helpA8:'استخدمي دائمًا الأرقام أو القنوات الرسمية المعتمدة من البنك، لا أرقامًا وردت في رسائل غير موثقة.',
+  startAiChat:'بدء محادثة مع درء AI',reportTechIssue:'الإبلاغ عن مشكلة تقنية',contactSupport:'التواصل مع الدعم',emergencyGuidance:'عرض إرشادات الطوارئ',demoDisclaimer:'هذه بيانات تجريبية لأغراض العرض في الهاكاثون، وليست قنوات دعم فعلية.',techIssueSent:'تم تسجيل بلاغك التقني (تجريبي) — شكرًا لك',supportDemoText:'الدعم متاح تجريبيًا داخل هذا العرض فقط عبر درء AI. في النسخة الفعلية سيتوفر دعم مباشر ٢٤/٧.',
+  emergencyTitle:'إرشادات الطوارئ عند الاشتباه بالاحتيال',emg1:'أوقفي البطاقة أو التحويل فورًا من تطبيق البنك أو الخط الرسمي.',emg2:'لا تشاركي أي رمز تحقق إضافي مهما بدا الطلب رسميًا.',emg3:'احتفظي بلقطات شاشة للمحادثة أو الرابط كأدلة.',emg4:'ارفعي بلاغًا داخل درء لمراجعة الجهة المشبوهة.',
+  visionTitle:'من حماية عميل إلى شبكة وطنية',visionNote:'ملاحظة: ربط درء بالبنوك خطوة مستقبلية ضمن خارطة الطريق، وليست ميزة مُفعّلة حاليًا.',
+  phase1Title:'المرحلة الأولى',phase1Text:'حماية عملاء مصرف الإنماء من الروابط والمواقع والحسابات ورموز QR المشبوهة.',phase2Title:'المرحلة الثانية',phase2Text:'التكامل مع أنظمة مصرف الإنماء وعرض الحماية قبل التحويل والدفع.',phase3Title:'المرحلة الثالثة',phase3Text:'إتاحة APIs آمنة للبنوك السعودية لتبادل مؤشرات الاحتيال دون مشاركة بيانات العملاء.',phase4Title:'المرحلة الرابعة',phase4Text:'إنشاء شبكة وطنية لذكاء الاحتيال المالي بالتعاون مع الجهات التنظيمية.',phase5Title:'المرحلة الخامسة',phase5Text:'التوسع إلى دول الخليج وشركات الدفع والمتاجر.',
+  howScanWorks:'كيف يعمل الفحص؟',multiSignalAnalysis:'تحليل متعدد المؤشرات',scanHelpText:'يحلل النموذج التجريبي خصائص الرابط، سمعة النطاق، التشابه مع الجهات الرسمية، والبلاغات المتاحة، ثم يعرض تفسيرًا واضحًا للقرار وخطوات عملية بعد النتيجة.',
+  badPhone:'أدخلي رقم جوال صحيح',verifiedOk:'تم التحقق بنجاح',bioOk:'تم التحقق بالبصمة',demoStarted:'بدأ العرض التجريبي — جرّبي فحص رابط مشبوه',
+  siteSafe1:'السجل التجاري موثق وفعّال',siteSafe2:'وثيقة التجارة الإلكترونية سارية',siteSafe3:'النطاق مستقر وعمره أكثر من 5 سنوات',siteSafe4:'لا توجد بلاغات مرتبطة بالمتجر',
+  linkSafe1:'اتصال آمن ومشفّر HTTPS',linkSafe2:'النطاق مستقر وعمره أكثر من 3 سنوات',linkSafe3:'لا توجد بلاغات تجريبية مرتبطة بالوجهة',
+  ibanBad1:'وردت بلاغات تجريبية مرتبطة بالحساب',ibanBad2:'الحساب مستفيد جديد ولم يسبق التعامل معه',ibanBad3:'نمط التحويل غير معتاد مقارنة بسلوك المستخدم',
+  siteBad1:'لا يمكن التحقق من السجل التجاري',siteBad2:'وثيقة التجارة الإلكترونية غير موجودة أو منتهية',siteBad3:'النطاق أُنشئ منذ 12 يومًا',siteBad4:'توجد شكاوى مرتبطة بالمتجر',
+  linkBad1:'النطاق أُنشئ حديثًا',linkBad2:'الرابط يحتوي على إعادة توجيه غير معتادة',linkBad3:'يشابه اسم جهة رسمية',linkBad4:'توجد بلاغات تجريبية مرتبطة بالرابط',
+  days12:'12 يومًا',years9:'9 سنوات',years4m3:'4 سنوات و3 أشهر',httpsWeak:'موجود لكن غير كافٍ',httpsOk:'مفعّل وصحيح',redirectIssue:'إعادة توجيه + كلمات حساسة',noIssue:'لا توجد مؤشرات مقلقة',officialEntity:'جهة رسمية',lowSimilarity:'منخفضة',days3ago:'قبل 3 أيام',justNow:'الآن',unverified:'غير متحقق',active:'فعّال',missingOrExpired:'غير متوفرة أو منتهية',validDoc:'موثقة وسارية',recognizedEntity:'جهة معروفة وموثوقة',unclassified:'غير مصنفة كجهة معروفة',
+  enterDataFirst:'أدخلي البيانات أولًا',safeFilled:'تمت تعبئة مثال آمن',dangerFilled:'تمت تعبئة مثال خطر',qrSafeToast:'سيتم استخدام QR لتاجر موثق',qrDangerToast:'سيتم استخدام QR مشبوه',
+  scoreLabel:'الدرجة',appName:'درء',close:'إغلاق',
+  demoBankingTitle:'عرض تجريبي: التكامل البنكي',demoBankingDesc:'محاكاة لكيفية عمل درء بعد التكامل مع تطبيق البنك (المرحلة الثانية من خارطة الطريق).',demoNotifBtn:'محاكاة إشعار دفع من إنماء',demoTransferBtn:'محاكاة تحويل عبر إنماء',
+  pnTitle:'دفعتِ للتو ببطاقة الإنماء •• 4471',pnTextBad:'هذا الحساب يبدو مشبوهًا — اضغطي لعرض التحليل',
+  bankName:'بنك الإنماء',bankVerifyingText:'جارٍ التحقق من الحساب البنكي عبر درء قبل إتمام التحويل...',protectedByDeraa:'محمي بواسطة درء'
+ },
+ en:{
+  tagline:'Smart protection before you pay',secureLogin:'Secure Login',welcomeBack:'Welcome back',loginSub:'Sign in with your registered mobile number to access protection and verification tools.',phoneLabel:'Mobile number',sendOtp:'Send verification code',bioLogin:'Sign in with biometrics',runDemo:'Run the demo',
+  todayStatus:"Today's security status",excellentProtection:'Excellent protection',heroDesc:'No serious threats detected. Start a scan from the floating button below.',securityScore:'Security score',
+  lastActivity:'Last security activity',viewReport:'View report',statScans:'scans this week',statRisks:'risks detected',statReports:'reports processed',
+  securityAlert:'Security alert',details:'Details',alertTitle:'Fake shipping-link campaign',alertText:'Confirm the site address before entering card details or an OTP.',alertModalText:'Some messages impersonate shipping companies and request a small fee through a fake link. Do not enter card details or an OTP before confirming the domain.',
+  lastReportResult:'Last report result',viewReports:'View reports',viewDetails2:'View details',knowWhy:'See why',
+  protectionCenter:'Protection center',chooseScanType:'Choose a scan type',scanQrTitle:'Scan QR',scanQrDesc:'Analyze the payment destination and merchant data.',scanLinkTitle:'Scan link',scanLinkDesc:'Detect spoofed and phishing links.',scanSiteTitle:'Site or store',scanSiteDesc:'Verify domain and store reputation.',scanIbanTitle:'Bank account',scanIbanDesc:'Match beneficiary and report history.',
+  qrDemoHint:'Demo view simulating the camera',qrSafeBtn:'Scan a safe code (verified merchant)',qrDangerBtn:'Scan a suspicious code',
+  enterLink:'Enter the link to analyze',enterSiteLink:'Enter the site or store link',enterIban:'Enter the IBAN or account number',trySafeExample:'Try a safe example',tryDangerExample:'Try a risky example',analyzeNow:'Analyze now',starting:'Starting analysis...',analysisResult:'Analysis result',viewFullReport:'View full report',fileReport:'File a report',
+  step1:'Scanning link structure',step2:'Checking domain age',step3:'Matching threat databases',step4:'Analyzing similarity to official sites',step5:'Calculating risk score',
+  qrStep1:'Reading QR code',qrStep2:'Identifying payment destination',qrStep3:'Matching merchant name',qrStep4:'Calculating security score',
+  highRisk:'High risk',trustedEntity:'Trusted entity',safeInitial:'Likely safe',safeResult:'Safe result',securityWarning:'Security warning',
+  recommendation:'Recommendation',recBad:"Don't complete the payment or share any verification code with anyone.",recSafe:'You can proceed — always confirm the merchant name matches.',
+  whatNow:'What should you do now?',ns1:"Don't complete the payment",ns2:"Don't share the verification code",ns3:'Contact your bank via official channels',ns4:'Report this entity',
+  safe1:'You can proceed',safe2:"Confirm the merchant name matches",safe3:"Don't share your verification code with anyone",
+  copyReport:'Copy report',cancelOperation:'Cancel operation',copied:'Report copied',opCancelled:'Operation cancelled',noReportYet:'No result yet',
+  fullRiskReport:'Smart risk report',riskScore:'Risk score',domainAge:'Domain age',httpsStatus:'HTTPS status',domainReputation:'Domain reputation',reportCount:'Report count',lastReportDate:'Last report date',officialSimilarity:'Similarity to an official entity',suspiciousRedirect:'Suspicious redirect present',merchantBeneficiary:'Merchant / beneficiary name',entityDataMatch:'Entity data match',lastUpdateTime:'Last update time',commercialReg:'Commercial registry',ecommerceDoc:'E-commerce license',knownBadge:'Recognized, trusted entity — official domain matched',
+  merchantName:'Merchant name',entityType:'Entity type',paymentDest:'Payment destination',extractedAccount:'Extracted account / link',nameMatch:'Merchant name match',decisionReason:'Reason for decision',scanResult:'QR scan result',
+  qrGoodMerchant:'Jarir Bookstore — Olaya Branch',qrGoodType:'Official POS terminal',qrGoodDest:'Verified business account',qrGoodReason:'Verified merchant, no reports, and data fully matches.',
+  qrBadMerchant:'Unknown',qrBadType:'Personal account',qrBadDest:'Unverified individual wallet',qrBadReason:'The code redirects to a personal account, the beneficiary name does not match the store, and there are signs the original code was swapped.',
+  yes:'Yes',no:'No',notApplicable:'N/A',
+  aiSubtitle:'Your security assistant',aiTitle:'Deraa AI',aiGreeting:"Hi, I'm Deraa AI. Ask me about a link, message, QR code, bank account, or any security situation.",chatPlaceholder:'Type your question...',
+  whatIsDeraa:'What is Deraa?',howToReport:'How do I file a report?',isInfoShared:'Is my personal info shared?',whatIfScammed:"What if I've been scammed?",isThisLinkSafe:'Is this link safe?',shouldITransfer:'Should I transfer to this account?',howToKnowQrFake:'How do I know a QR is fake?',sharedOtp:'What if I shared my OTP?',isMsgFromBank:'How do I know a message is really from my bank?',whyReportRejected:'Why was my report rejected?',howRiskCalculated:'How is the risk score calculated?',linkedToAlinma:'Is Deraa linked to Alinma Bank?',linkedToOtherBanks:'Will Deraa connect to other banks?',nationalFraudStats:'Are there official fraud stats for Saudi Arabia?',
+  replyWhatIsDeraa:'Deraa is a financial security app that protects you before you pay, by scanning links, sites, stores, bank accounts and QR codes, then explaining the risk level and the right recommendation.',
+  replyHowToReport:'Open the Reports tab, choose a report type, add details and an image if available, then submit. Your report moves through received, analyzing, reviewed, then accepted or rejected.',
+  replyIsInfoShared:'Your personal data is never published within a report. Only the verified threat indicator is used — your number, email or banking details are never shown to other users.',
+  replyWhatIfScammed:'Freeze the card or transfer immediately via official channels, contact your bank, keep evidence, then file a report in Deraa so the suspicious entity can be reviewed.',
+  replyIsThisLinkSafe:'Send the link to the scan center so I can analyze domain age, HTTPS, similarity to official entities and report history, then I will show you the result and recommendation.',
+  replyShouldITransfer:'Before transferring, compare the beneficiary name to the known entity, and check the report history and relationship age with the account. Stop if anything looks mismatched or urgent.',
+  replyHowToKnowQrFake:'Signs of a suspicious QR: a sticker placed over an original code, a merchant name mismatch, a personal instead of business destination, or a link outside the official domain.',
+  replySharedOtp:'Stop the operation immediately and contact your bank via official channels to freeze any transfer, then change your login details and file a report in Deraa.',
+  replyIsMsgFromBank:'Official messages never ask for your OTP or password, never rush you into a decision, and come from an approved number or domain. If in doubt, contact your bank directly.',
+  replyWhyReportRejected:"Reports are usually rejected when there isn't enough evidence of fraud, or the entity is known and trusted. Rejection never affects your account.",
+  replyHowRiskCalculated:'The risk score is calculated from domain age, HTTPS status, similarity to official entities, suspicious redirects, and the report history linked to the entity.',
+  replyLinkedToAlinma:'In this demo stage, Deraa is designed to protect Alinma Bank customers as a first step on the roadmap — real integration with banking systems is a future step, not active yet.',
+  replyLinkedToOtherBanks:'Yes — that is part of the future vision: expanding to other Saudi banks through secure APIs that exchange fraud indicators without sharing customer data.',
+  replyNationalFraudStats:"This demo isn't connected to a live national counter, so I won't give you an unverified number. In the future, official statistics could be shown after integrating with the relevant authorities.",
+  replyFallback:"I'm your Deraa security assistant. Send me a link, an account number, or details of a suspicious message and I'll explain the risk signs and the best next step.",
+  aiLinkFound:"I noticed a link in your message. Here's a quick initial read — for a full analysis use the scan center.",aiLinkRec:"Don't open the link or enter any data before a full check.",openInScan:'Open in scan',
+  aiIbanFound:"I noticed a bank account number (IBAN). Here's an initial read — a full check is recommended before any transfer.",aiIbanRec:'Compare the beneficiary name and check the report history before transferring.',
+  markUrgency:'urgency',markSensitive:'sensitive data request',markImpersonation:'impersonating an official entity',markLink:'untrusted link',markOtp:'OTP request',
+  aiMsgIndicators:'I spotted possible fraud indicators in your message',aiMsgRec:"Don't reply or tap any link in it. Verify the entity through its official channels.",
+  cautionLevel:'Caution',safeLevel:'Safe',startFullScan:'Start full scan',openHelp:'Open help center',recCheckIban:'Check the account in the scan center before transferring.',
+  communityContribution:'Community contribution',reportsTitle:'Reports',step1of3:'Step 1 of 3',chooseReportType:'Choose report type',typeLink:'Link',typeIban:'Bank account',typeStore:'Store',typeMsg:'Message',typePhone:'Phone number',next:'Next',
+  step2of3:'Step 2 of 3',entityData:'Entity data',reportDetails:'Report details',attachImage:'Attach an image or screenshot',noImageChosen:'No image chosen',back:'Back',review:'Review',
+  step3of3:'Step 3 of 3',reviewReport:'Review report',submitForAnalysis:'Submit report for analysis',yourPastReports:'Your past reports',
+  reportTypeLabel:'Report type',entityLabel:'Entity',imageLabel:'Image',none:'None',willAutoAnalyze:'Your report will be auto-analyzed before approval.',completeReportData:'Please complete the report data',addedNow:'Added just now',reportSubmitted:'Report submitted for analysis',chosen:'Chosen',
+  processedToday:'Processed today',reviewedYesterday:'Reviewed yesterday',acceptReason1:'The link was verified to mimic an official payment page. The report was accepted and the indicator added to the demo risk database.',rejectReason1:"There wasn't enough evidence the entity was fraudulent, so the report was rejected without affecting the entity's rating.",ind1:'High similarity to an official domain',ind2:'Unusual redirect pattern',ind3:'Recently created domain',todayTime:'Today 10:42 AM',yesterdayTime:'Yesterday 4:15 PM',
+  accepted:'Accepted',rejected:'Rejected',analyzing:'Analyzing',
+  reportResult:'Report result',tlReceived:'Report received',tlAnalyzing:'Analyzing data',tlReviewed:'Reviewed',tlAccepted:'Accepted',tlRejected:'Rejected',
+  confirmedIndicators:'Confirmed indicators',addedToRiskDb:'Added to the risk database',processedDate:'Processed date',rejectionNoImpact:"Rejecting a report never affects your account or your standing as a user.",analyzingWhatText:"We're currently checking the domain record and matching the data against the demo risk database.",estDemoTime:'Estimated time (demo)',seconds:'seconds',
+  acceptReasonGeneric:'The entity was verified and real fraud indicators were confirmed. It was added to the demo risk database.',rejectReasonGeneric:"There isn't enough evidence of fraud, or the entity is known and trusted. Its rating was not changed.",
+  lastReportAcceptedTitle:'Your latest report was accepted',lastReportAcceptedText:'The link was verified and added to the risk database.',lastReportRejectedTitle:'Your latest report was rejected',lastReportRejectedText:"There wasn't enough evidence of fraud.",lastReportAnalyzingTitle:'Your report is being analyzed',lastReportAnalyzingText:"We're checking the entity's data.",
+  userAccount:'User account',phoneLabel2:'Mobile number',emailLabel:'Email',genderLabel:'Gender',editMyInfo:'Edit my info',
+  accScoreLabel:'Account security',accScansLabel:'Scans',accReportsLabel:'Reports',accRisksLabel:'Risks',
+  darkMode:'Dark mode',securityNotifs:'Security notifications',bioLoginSetting:'Biometric login',registeredDevices:'Registered devices',language:'Language',privacySecurity:'Privacy & security',helpCenter:'Help center',futureVision:'Future vision',logout:'Log out',loggedOut:'Logged out',
+  navHome:'Home',navReports:'Reports',navScan:'Scan',navAi:'Deraa AI',navAccount:'Account',
+  changeAvatar:'Name',nameLabel:'Name',genderFemale:'Female',genderMale:'Male',saveChanges:'Save changes',changePhoto:'Change photo',avatarChanged:'Avatar updated',savedInfo:'Your info was saved',
+  manageSessions:'Manage login sessions',devicesSub:'You can log out of any unrecognized device instantly.',thisDevice:'this device',active:'Active',logoutAllOthers:'Log out of all other devices',confirmAction:'Confirm action',logoutAllConfirmText:"You'll be logged out of every device except this one. Continue?",cancel:'Cancel',confirm:'Confirm',loggedOutAllOthers:'Logged out of all other devices',deviceLoggedOut:'Device logged out',
+  chooseAppLang:'Choose app language',langChangedAr:'تم تغيير اللغة إلى العربية',langChangedEn:'Language changed to English',
+  privacyTitle:'How we protect your data',privacyQ1:'What data does Deraa collect?',privacyA1:'Your mobile number, email, and the scan/report data you create inside the app only.',privacyQ2:"What data isn't stored?",privacyA2:'Card details and OTP codes are never stored, at any time.',privacyQ3:'How are reports protected?',privacyA3:'Every report goes through automated review before approval, and the reporter’s data is never shown to other users.',privacyQ4:'Is user data published?',privacyA4:'No — your personal data is never shown to other users or third parties in any form.',privacyQ5:'How is threat data used?',privacyA5:'Only as anonymized indicators (a suspicious link or number) to improve scan accuracy for all users.',privacyQ6:'Data retention policy',privacyA6:'Account data is kept for as long as you use the app, and you may request deletion at any time.',privacyQ7:'Data encryption',privacyA7:'All data is transmitted over an encrypted connection and stored encrypted on the server.',privacyQ8:'Consent management',privacyA8:'You can review your consents and adjust notification preferences from account settings at any time.',privacyQ9:'Account deletion',privacyA9:'You can request full deletion of your account or data from the help center, processed within a set period.',
+  privacyConfirm:'Your card data is never stored, your OTP is never saved, and your personal data is never shown to other users. Any future data sharing between banks will be limited to anonymized threat indicators, never customer data.',
+  helpTitle:'How can we help?',helpQ1:'How do I scan a link?',helpA1:'Open the scan center, choose Link, paste it, then tap Analyze now.',helpQ2:'How do I scan a QR code?',helpA2:'From the scan center choose Scan QR, then tap one of the demo scan examples.',helpQ3:'How do I check a bank account?',helpA3:'Choose Bank account from the scan center and enter the IBAN for an initial assessment.',helpQ4:'How do I file a report?',helpA4:'From the Reports tab choose a type, add details, then submit for analysis.',helpQ5:'Why was my report rejected?',helpA5:"Usually due to insufficient evidence, or the entity is known and trusted. Rejection never affects your account.",helpQ6:'What do I do if I was scammed?',helpA6:'Stop the operation immediately, contact your bank via official channels, then file a report.',helpQ7:'Is the scan result a final guarantee?',helpA7:'No — it is an assessment based on available signals. Always verify directly with the entity when in doubt.',helpQ8:'How do I contact my bank?',helpA8:"Always use your bank's official approved numbers or channels — never numbers from an unverified message.",
+  startAiChat:'Start a chat with Deraa AI',reportTechIssue:'Report a technical issue',contactSupport:'Contact support',emergencyGuidance:'View emergency guidance',demoDisclaimer:'This is demo data for the hackathon presentation, not a real support channel.',techIssueSent:'Your technical report was logged (demo) — thank you',supportDemoText:'Support is only available in this demo via Deraa AI. The production version will offer live 24/7 support.',
+  emergencyTitle:'Emergency guidance if you suspect fraud',emg1:"Freeze the card or transfer immediately via your bank's app or official line.",emg2:'Never share an additional verification code no matter how official the request looks.',emg3:'Keep screenshots of the conversation or link as evidence.',emg4:'File a report in Deraa so the suspicious entity can be reviewed.',
+  visionTitle:'From protecting one customer to a national network',visionNote:'Note: connecting Deraa to banks is a future roadmap step, not an active feature today.',
+  phase1Title:'Phase one',phase1Text:'Protect Alinma Bank customers from suspicious links, sites, accounts and QR codes.',phase2Title:'Phase two',phase2Text:"Integrate with Alinma Bank's systems and show protection before transfers and payments.",phase3Title:'Phase three',phase3Text:'Offer secure APIs for Saudi banks to exchange fraud indicators without sharing customer data.',phase4Title:'Phase four',phase4Text:'Build a national financial-fraud intelligence network with regulators.',phase5Title:'Phase five',phase5Text:'Expand to Gulf countries, payment companies and merchants.',
+  howScanWorks:'How does scanning work?',multiSignalAnalysis:'Multi-signal analysis',scanHelpText:'The demo model analyzes link properties, domain reputation, similarity to official entities, and available reports, then shows a clear explanation and next steps after the result.',
+  badPhone:'Enter a valid mobile number',verifiedOk:'Verified successfully',bioOk:'Verified with biometrics',demoStarted:'Demo started — try scanning a suspicious link',
+  siteSafe1:'Commercial registry is verified and active',siteSafe2:'E-commerce license is valid',siteSafe3:'Domain is stable and over 5 years old',siteSafe4:'No reports linked to this store',
+  linkSafe1:'Secure, encrypted HTTPS connection',linkSafe2:'Domain is stable and over 3 years old',linkSafe3:'No demo reports linked to this destination',
+  ibanBad1:'Demo reports are linked to this account',ibanBad2:'The account is a new beneficiary with no prior history',ibanBad3:"The transfer pattern is unusual compared to the user's behavior",
+  siteBad1:"Commercial registry couldn't be verified",siteBad2:'E-commerce license is missing or expired',siteBad3:'Domain was created 12 days ago',siteBad4:'Complaints are linked to this store',
+  linkBad1:'Domain was recently created',linkBad2:'The link contains an unusual redirect',linkBad3:'Resembles the name of an official entity',linkBad4:'Demo reports are linked to this link',
+  days12:'12 days',years9:'9 years',years4m3:'4 years, 3 months',httpsWeak:'Present but insufficient',httpsOk:'Enabled and valid',redirectIssue:'Redirect + sensitive keywords',noIssue:'No concerning signals',officialEntity:'an official entity',lowSimilarity:'Low',days3ago:'3 days ago',justNow:'Just now',unverified:'Unverified',active:'Active',missingOrExpired:'Missing or expired',validDoc:'Valid and active',recognizedEntity:'Recognized, trusted entity',unclassified:'Not classified as a known entity',
+  enterDataFirst:'Enter the data first',safeFilled:'Safe example filled in',dangerFilled:'Risky example filled in',qrSafeToast:'A verified merchant QR will be used',qrDangerToast:'A suspicious QR will be used',
+  scoreLabel:'Score',appName:'Deraa',close:'Close',
+  demoBankingTitle:'Demo: banking integration',demoBankingDesc:'A simulation of how Deraa works once integrated with the bank app (phase two of the roadmap).',demoNotifBtn:'Simulate an Alinma payment alert',demoTransferBtn:'Simulate an Alinma transfer check',
+  pnTitle:"You just paid with your Alinma card •• 4471",pnTextBad:'This merchant looks suspicious — tap to see the analysis',
+  bankName:'Alinma Bank',bankVerifyingText:'Verifying the bank account via Deraa before completing the transfer...',protectedByDeraa:'Protected by Deraa'
+ }
+};
+function applyLanguage(lang,silent){
+  appLang=lang;localStorage.setItem('deraaLang',lang);
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  const t=translations[lang];
+  $$('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k]!==undefined)el.textContent=t[k]});
+  $$('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(t[k]!==undefined)el.placeholder=t[k]});
+  $('#languageValue').textContent=(lang==='ar'?'العربية':'English')+' ‹';
+  renderSuggestions();
+  renderReportHistory();
+  updateHomeReportCard();
+  if(!silent)toast(lang==='ar'?t.langChangedAr:t.langChangedEn);
+}
+$('#languageRow').onclick=()=>showModal(`<div class="eyebrow">${T('language')}</div><h2>${T('chooseAppLang')}</h2><div class="actions"><button class="secondary" onclick="applyLanguage('ar');$('#modal').classList.remove('show')">العربية</button><button class="primary" onclick="applyLanguage('en');$('#modal').classList.remove('show')">English</button></div>`);
+window.applyLanguage=applyLanguage;
+
+/* ---------- profile ---------- */
+let profile={name:'فاطمة عبدالله',phone:'0551234567',email:'fatimah@example.com',gender:'female',avatarLetter:'ف'};
+function refreshProfileUI(){
+  $('#accountName').textContent=profile.name;$('#profilePhone').textContent=profile.phone;$('#profileEmail').textContent=profile.email;
+  $('#profileGender').textContent=profile.gender==='female'?T('genderFemale'):T('genderMale');
+  $('#homeAvatar').textContent=profile.avatarLetter;$('#accountAvatar').textContent=profile.avatarLetter;
+  $('#homeName').textContent=profile.name.split(' ')[0];
+}
+function openProfileEdit(){
+  showModal(`<div class="eyebrow">${T('userAccount')}</div><h2>${T('editMyInfo')}</h2>
+  <div class="avatar-edit"><div class="avatar" id="avatarPreview">${profile.avatarLetter}</div><button id="changeAvatarBtn">✎</button></div>
+  <div class="modal-form">
+    <label class="field-label">${T('nameLabel')}</label><input id="editName" class="field" value="${profile.name}">
+    <label class="field-label">${T('phoneLabel2')}</label><input id="editPhone" class="field" value="${profile.phone}">
+    <label class="field-label">${T('emailLabel')}</label><input id="editEmail" class="field" value="${profile.email}">
+    <label class="field-label">${T('genderLabel')}</label>
+    <div class="choice-row"><button class="choice-btn ${profile.gender==='female'?'selected':''}" data-gender="female">${T('genderFemale')}</button><button class="choice-btn ${profile.gender==='male'?'selected':''}" data-gender="male">${T('genderMale')}</button></div>
+    <button id="saveProfile" class="primary">${T('saveChanges')}</button>
+  </div>`);
+  $('#changeAvatarBtn').onclick=()=>{const letters=['ف','ع','س','ن','م'];const cur=letters.indexOf($('#avatarPreview').textContent);const next=letters[(cur+1)%letters.length];$('#avatarPreview').textContent=next;toast(T('changePhoto')+' — '+T('avatarChanged'))};
+  $$('[data-gender]').forEach(b=>b.onclick=()=>{$$('[data-gender]').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')});
+  $('#saveProfile').onclick=()=>{
+    profile.name=$('#editName').value.trim()||profile.name;
+    profile.phone=$('#editPhone').value.trim()||profile.phone;
+    profile.email=$('#editEmail').value.trim()||profile.email;
+    profile.gender=$('[data-gender].selected').dataset.gender;
+    profile.avatarLetter=$('#avatarPreview').textContent;
+    refreshProfileUI();
+    $('#modal').classList.remove('show');toast(T('savedInfo'));
+  };
+}
+$('#editProfileRow').onclick=openProfileEdit;
+
+/* ---------- privacy / help / vision ---------- */
+$('#privacyRow').onclick=()=>showModal(`<div class="eyebrow">${T('privacySecurity')}</div><h2>${T('privacyTitle')}</h2>
+  <div class="faq"><b>${T('privacyQ1')}</b><p>${T('privacyA1')}</p></div>
+  <div class="faq"><b>${T('privacyQ2')}</b><p>${T('privacyA2')}</p></div>
+  <div class="faq"><b>${T('privacyQ3')}</b><p>${T('privacyA3')}</p></div>
+  <div class="faq"><b>${T('privacyQ4')}</b><p>${T('privacyA4')}</p></div>
+  <div class="faq"><b>${T('privacyQ5')}</b><p>${T('privacyA5')}</p></div>
+  <div class="faq"><b>${T('privacyQ6')}</b><p>${T('privacyA6')}</p></div>
+  <div class="faq"><b>${T('privacyQ7')}</b><p>${T('privacyA7')}</p></div>
+  <div class="faq"><b>${T('privacyQ8')}</b><p>${T('privacyA8')}</p></div>
+  <div class="faq"><b>${T('privacyQ9')}</b><p>${T('privacyA9')}</p></div>
+  <div class="known-safe" style="color:var(--text);background:var(--surface-2);border-color:var(--line)">${T('privacyConfirm')}</div>`);
+
+$('#helpRow').onclick=()=>showModal(`<div class="eyebrow">${T('helpCenter')}</div><h2>${T('helpTitle')}</h2>
+  <div class="faq"><b>${T('helpQ1')}</b><p>${T('helpA1')}</p></div>
+  <div class="faq"><b>${T('helpQ2')}</b><p>${T('helpA2')}</p></div>
+  <div class="faq"><b>${T('helpQ3')}</b><p>${T('helpA3')}</p></div>
+  <div class="faq"><b>${T('helpQ4')}</b><p>${T('helpA4')}</p></div>
+  <div class="faq"><b>${T('helpQ5')}</b><p>${T('helpA5')}</p></div>
+  <div class="faq"><b>${T('helpQ6')}</b><p>${T('helpA6')}</p></div>
+  <div class="faq"><b>${T('helpQ7')}</b><p>${T('helpA7')}</p></div>
+  <div class="faq"><b>${T('helpQ8')}</b><p>${T('helpA8')}</p></div>
+  <div class="actions" style="margin-top:6px"><button class="primary" onclick="$('#modal').classList.remove('show');go('ai')">${T('startAiChat')}</button><button class="secondary" onclick="reportTechIssue()">${T('reportTechIssue')}</button></div>
+  <div class="actions" style="margin-top:9px"><button class="secondary" onclick="contactSupportDemo()">${T('contactSupport')}</button><button class="secondary" onclick="showEmergencyGuidance()">${T('emergencyGuidance')}</button></div>
+  <div class="demo-note">${T('demoDisclaimer')}</div>`);
+function reportTechIssue(){toast(T('techIssueSent'))}
+function contactSupportDemo(){showModal(`<div class="eyebrow">${T('contactSupport')}</div><h2>${T('helpCenter')}</h2><p class="sub">${T('supportDemoText')}</p><button class="primary" onclick="$('#modal').classList.remove('show');go('ai')">${T('startAiChat')}</button><div class="demo-note">${T('demoDisclaimer')}</div>`)}
+function showEmergencyGuidance(){showModal(`<div class="eyebrow">${T('emergencyGuidance')}</div><h2>${T('emergencyTitle')}</h2>
+  <div class="emergency-box"><div><i>!</i><span>${T('emg1')}</span></div><div><i>!</i><span>${T('emg2')}</span></div><div><i>!</i><span>${T('emg3')}</span></div><div><i>!</i><span>${T('emg4')}</span></div></div>
+  <div class="actions" style="margin-top:12px"><button class="primary" onclick="$('#modal').classList.remove('show');go('reports')">${T('fileReport')}</button></div>`)}
+window.reportTechIssue=reportTechIssue;window.contactSupportDemo=contactSupportDemo;window.showEmergencyGuidance=showEmergencyGuidance;
+
+$('#visionRow').onclick=()=>showModal(`<div class="eyebrow">${T('futureVision')}</div><h2>${T('visionTitle')}</h2>
+  <div class="roadmap">
+    <div class="roadmap-item"><div class="roadmap-num">1</div><div><h4>${T('phase1Title')}</h4><p>${T('phase1Text')}</p></div></div>
+    <div class="roadmap-item"><div class="roadmap-num">2</div><div><h4>${T('phase2Title')}</h4><p>${T('phase2Text')}</p></div></div>
+    <div class="roadmap-item"><div class="roadmap-num">3</div><div><h4>${T('phase3Title')}</h4><p>${T('phase3Text')}</p></div></div>
+    <div class="roadmap-item"><div class="roadmap-num">4</div><div><h4>${T('phase4Title')}</h4><p>${T('phase4Text')}</p></div></div>
+    <div class="roadmap-item"><div class="roadmap-num">5</div><div><h4>${T('phase5Title')}</h4><p>${T('phase5Text')}</p></div></div>
+  </div>
+  <div class="known-safe" style="color:var(--text);background:var(--surface-2);border-color:var(--line)">${T('visionNote')}</div>`);
+
+/* ---------- demo: banking integration scenarios ---------- */
+function simulatePaymentNotification(){
+  $('#pnTitle').textContent=T('pnTitle');
+  $('#pnText').textContent=T('pnTextBad');
+  $('#pnTime').textContent=T('justNow');
+  $('#pushNotif').classList.add('show','danger');
+  clearTimeout(simulatePaymentNotification._t);
+  simulatePaymentNotification._t=setTimeout(()=>{$('#pushNotif').classList.remove('show')},6000);
+}
+$('#pushNotif').onclick=()=>{
+  clearTimeout(simulatePaymentNotification._t);
+  $('#pushNotif').classList.remove('show');
+  setTimeout(()=>{
+    go('scan');setMode('site');
+    $('#scanInput').value=scanExamples.site.danger;
+    analyze();
+  },250);
+};
+$('#demoNotifBtn').onclick=simulatePaymentNotification;
+
+function simulateTransferVerification(){
+  $('#bankOverlayText').textContent=T('bankVerifyingText');
+  $('#bankOverlay').classList.add('show');
+  setTimeout(()=>{
+    $('#bankOverlay').classList.remove('show');
+    go('scan');setMode('iban');
+    $('#scanInput').value=scanExamples.iban.danger;
+    analyze();
+  },1800);
+}
+$('#demoTransferBtn').onclick=simulateTransferVerification;
+
+/* ---------- logout ---------- */
+$('#logoutBtn').onclick=()=>{go('login');toast(T('loggedOut'));animateScore(0)};
+
+/* ---------- init ---------- */
+renderReportHistory();
+refreshProfileUI();
+applyLanguage(appLang,true);
+</script>
+</body>
+</html>
